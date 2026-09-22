@@ -1,0 +1,68 @@
+YEAR,MONTH,DAY,DATE,ISLAND,LOCATION,LATITUDE,LONGITUDE,START TIME,END TIME,WEATHER,CLOUD COVER,MOON CONDITIONS,MOON ILLUMINATION,Points,RECORDERS,SQM (LW),SQM (W),SQM (SW),SQM (E),SQM ZENITH,AVERAGE SQM ,
+2026,7,15,7/15/2026,STX,Smugglers Cove,17.75613,-64.59208,1:51,2:38,Clear,0-20%,Waxing Crescent,2.20%,1,Romina and Jahsendi,21.5,17.26,20.69,21.39,20.74,20.21,The end of white streetlights in Christiansted before driving to the eastern point of St. Croix. 
+2026,7,15,7/15/2026,STX,Smugglers Cove,17.756,-64.59253,1:51,2:38,Clear,0-20%,Waxing Crescent,2.20%,2,Romina and Jahsendi,15.3,17.54,19.68,16.56,20.59,17.27,
+2026,7,15,7/15/2026,STX,Smugglers Cove,17.75603,-64.593,1:51,2:38,Clear,0-20%,Waxing Crescent,2.20%,3,Romina and Jahsendi,20.03,17.16,20.64,14.99,20.04,18.21,
+2026,7,15,7/15/2026,STX,Smugglers Cove,17.7561,-64.59346,1:51,2:38,Clear,0-20%,Waxing Crescent,2.20%,4,Romina and Jahsendi,20.45,16.44,20.7,16.12,21.8,18.43,
+2026,7,15,7/15/2026,STX,Smugglers Cove,17.75618,-64.59391,1:51,2:38,Clear,0-20%,Waxing Crescent,2.20%,5,Romina and Jahsendi,20.01,15.27,20.63,16.31,20.85,18.06,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75993,-64.65873,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,1,Romina and Abigail,21.46,19.07,20.39,19.04,20.64,19.99,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75973,-64.65915,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,2,Romina and Abigail,20.84,18.96,20.36,19.92,20.64,20.02,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75961,-64.65961,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,3,Romina and Abigail,21.27,19.24,20.33,20.4,20.75,20.31,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75957,-64.66007,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,4,Romina and Abigail,20.87,19.74,20.7,20.17,20.55,20.37,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75962,-64.66055,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,5,Romina and Abigail,20.9,19.23,20.73,20.01,20.4,20.22,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75973,-64.66101,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,6,Romina and Abigail,20.52,20.14,20.12,20.12,20.44,20.23,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75986,-64.66146,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,7,Romina and Abigail,21.75,19.93,20.75,20.01,20.7,20.61,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.75996,-64.66191,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,8,Romina and Abigail,21.5,19.99,20.93,17.62,20.67,20.01,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76008,-64.66238,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,9,Romina and Abigail,21.39,19.9,20.93,19.62,20.4,20.46,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76014,-64.66283,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,10,Romina and Abigail,21.67,19.56,20.91,20.77,20.29,20.73,Cloud cover increase at 23:00.
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76022,-64.66331,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,11,Romina and Abigail,21.61,20.22,20.87,20.15,20.64,20.71,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76033,-64.66375,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,12,Romina and Abigail,22.27,19.82,20.74,20.18,20.69,20.75,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76042,-64.66422,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,13,Romina and Abigail,22.02,19.86,20.72,20.48,20.7,20.77,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76055,-64.66467,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,14,Romina and Abigail,21.12,19.68,20.62,19.7,20.18,20.28,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76065,-64.66513,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,15,Romina and Abigail,22.24,19.13,20.6,19.99,21.71,20.49,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76072,-64.66559,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,16,Romina and Abigail,20.44,18.51,20.55,19.98,19.71,19.87,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76081,-64.66606,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,17,Romina and Abigail,20.85,19.02,20.83,20.15,20.47,20.21,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.7608,-64.66654,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,18,Romina and Abigail,20.89,19.34,20.84,20.42,20.48,20.37,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76089,-64.667,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,19,Romina and Abigail,20.55,20.36,20.42,20.26,20.4,20.40,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76084,-64.66747,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,20,Romina and Abigail,20.31,18.8,20.54,19.87,19.99,19.88,
+2026,7,16,7/16/2026,STX,Chaney Bay,17.76086,-64.66794,21:08,0:42,Partly Cloudy,40-60%,Waxing Crescent,6.90%,21,Romina and Abigail,19.68,19.05,20.67,20.19,20.34,19.90,
+2026,8,10,8/10/2026,STX,Prune Bay,17.76258,-64.65424,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,1,Romina and Sabrina,20.46,19.73,20.03,19.98,20.67,20.05,Most western point. All rocks and a lot of foul sargassum!
+2026,8,10,8/10/2026,STX,Prune Bay,17.76284,-64.65463,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,2,Romina and Sabrina,20.21,20.61,21,19.62,20.5,20.36,"The small cottage on the west end of the beach turned off its nights. When it was on, it was bright. "
+2026,8,10,8/10/2026,STX,Prune Bay,17.76324,-64.65486,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,3,Romina and Sabrina,21.21,20.43,20.97,20.02,20.56,20.66,On top of berm because of high wall.
+2026,8,10,8/10/2026,STX,Prune Bay,17.76234,-64.65383,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,4,Romina and Sabrina,22.23,19.8,20.42,19.33,20.67,20.45,We started right here in the beginning at the coconut tree where the main area is on the beach. Near the post critter signs. 
+2026,8,10,8/10/2026,STX,Prune Bay,17.76219,-64.65338,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,5,Romina and Sabrina,20.12,20.08,20.19,20.13,20.5,20.13,Light readings surrounded by tall grass.
+2026,8,10,8/10/2026,STX,Prune Bay,17.76207,-64.65292,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,6,Romina and Sabrina,20.95,19.62,20.77,19.63,20.02,20.24,
+2026,8,10,8/10/2026,STX,Prune Bay,17.76199,-64.65246,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,7,Romina and Sabrina,20.25,19.26,20.66,20.15,20.35,20.08,A lot of vegetation. Very little open sand in this spot. Hilly at the bottom of the berm. Beach lettuce is here.
+2026,8,10,8/10/2026,STX,Prune Bay,17.76188,-64.65199,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,8,Romina and Sabrina,21.02,19.63,20.76,20.68,20.42,20.52,
+2026,8,10,8/10/2026,STX,Prune Bay,17.76174,-64.65154,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,9,Romina and Sabrina,15.15,19.98,20.51,19.91,20.36,18.89,Wide open beach at this location (wider than all the other points). Flood lights from Candle Reef are visible. Hence the brightness in the LW reading. There are 2 white lights and 3 soft yellow luminares.
+2026,8,10,8/10/2026,STX,Prune Bay,17.76159,-64.6511,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,10,Romina and Sabrina,21.55,20.05,20.78,19.9,19.78,20.57,On the bottom of the berm.
+2026,8,10,8/10/2026,STX,Prune Bay,17.76148,-64.65063,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,11,Romina and Sabrina,21.19,19.56,20.55,19.71,20.2,20.25,On top of the berm (beach berm very tall and narrow).
+2026,8,10,8/10/2026,STX,Prune Bay,17.76146,-64.65015,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,12,Romina and Sabrina,20.31,18.75,21.1,20.88,20.37,20.26,LW is blocked by vegetation. White foam from waves are wide for SW readings. Cloud cover has increased. 
+2026,8,10,8/10/2026,STX,Prune Bay,17.76143,-64.64968,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,13,Romina and Sabrina,21.18,18.76,20.74,20.7,20.42,20.35,"Flat, open sand beach with view you can see the sky glow from Candle Reef Condos. "
+2026,8,10,8/10/2026,STX,Prune Bay,17.76145,-64.6492,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,14,Romina and Sabrina,21.29,18.88,20.66,20.31,20.25,20.29,Gets a little narrower. Can see one light from Candle Reef.
+2026,8,10,8/10/2026,STX,Prune Bay,17.76152,-64.64873,21:23,12:43,Partly Cloudy,40-60%,Waning Cresecent,6.30%,15,Romina and Sabrina,20.68,18.76,20.76,21.24,20.72,20.36,Last point on the east side
+2026,8,11,8/11/2026,STX,Cramers Park,17.75917,-64.58462,21:20,22:30,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,1,Romina and Abigail,21.22,19.26,20.05,21.62,20.9,20.54,
+2026,8,11,8/11/2026,STX,Cramers Park,17.75894,-64.58502,21:20,22:30,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,2,Romina and Abigail,19.96,18.72,21.15,18.86,20.81,19.67,
+2026,8,11,8/11/2026,STX,Cramers Park,17.75878,-64.58547,21:20,22:30,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,3,Romina and Abigail,15.96,17.86,20.67,19.53,20.65,18.51,
+2026,8,11,8/11/2026,STX,Cramers Park,17.75865,-64.58592,21:20,22:30,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,4,Romina and Abigail,19.47,18.17,20.77,19.75,20.84,19.54,
+2026,8,11,8/11/2026,STX,Cramers Park,17.75858,-64.58639,21:20,22:30,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,5,Romina and Abigail,14.9,16.37,16.87,14.32,17.41,15.62,
+2026,8,11,8/11/2026,STX,Cramers Park,17.75854,-64.58686,21:20,22:30,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,6,Romina and Abigail,13.11,17.87,18.93,17.25,19.31,16.79,
+2026,8,11,8/11/2026,STX,Brown Bay,17.76079,-64.58225,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,1,Romina and Abigail,21.13,21.4,21.87,21.95,21.1,21.59,
+2026,8,11,8/11/2026,STX,Brown Bay,17.7605,-64.58188,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,2,Romina and Abigail,21.18,21.23,21.65,21.77,20.91,21.46,
+2026,8,11,8/11/2026,STX,Brown Bay,17.76023,-64.58151,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,3,Romina and Abigail,21.25,20.83,21.77,21.89,20.97,21.44,
+2026,8,11,8/11/2026,STX,Brown Bay,17.75995,-64.58113,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,4,Romina and Abigail,20.32,21.44,21.89,21.89,20.93,21.39,
+2026,8,11,8/11/2026,STX,Brown Bay,17.75966,-64.58077,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,5,Romina and Abigail,21.3,21.32,21.75,21.97,21.14,21.59,
+2026,8,11,8/11/2026,STX,Brown Bay,17.7594,-64.58039,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,6,Romina and Abigail,23.14,21.01,21.83,23.2,21.4,22.30,
+2026,9,12,09/12/2026,STX,Issac Bay,17.75153,-64.57063,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,1,Romina and Omari,22.6,20.53,21.77,22.77,21.33,21.92,
+2026,9,12,09/12/2026,STX,Issac Bay,17.75128,-64.57101,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,2,Romina and Omari,21.85,20.64,21.79,22,21.37,21.57,
+2026,9,12,09/12/2026,STX,Issac Bay,17.75102,-64.57138,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,3,Romina and Omari,21.99,20.81,21.8,21.89,21.4,21.62,
+2026,9,12,09/12/2026,STX,Issac Bay,17.75069,-64.57173,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,4,Romina and Omari,23.26,21.14,21.67,21.84,21.47,21.98,
+2026,9,12,09/12/2026,STX,Issac Bay,17.75039,-64.57208,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,5,Romina and Omari,22.3,20.9,21.75,21.92,21.46,21.72,
+2026,9,12,09/12/2026,STX,Issac Bay,17.75004,-64.57237,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,6,Romina and Omari,22.17,21.21,21.74,22,21.38,21.78,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74967,-64.57263,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,7,Romina and Omari,22.18,20.49,21.74,21.78,21.43,21.55,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74941,-64.57302,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,8,Romina and Omari,21.71,20.45,21.62,21.8,21.3,21.40,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74912,-64.57337,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,9,Romina and Omari,21.87,20.69,21.82,21.8,21.31,21.55,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74881,-64.57372,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,10,Romina and Omari,21.74,20.72,21.84,21.77,21.46,21.52,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74853,-64.5741,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,11,Romina and Omari,21.73,20.67,21.81,21.88,21.38,21.52,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74828,-64.57449,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,12,Romina and Omari,21.86,20.8,21.85,21.8,21.49,21.58,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74803,-64.57488,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,13,Romina and Omari,22.09,21,21.79,21.72,21.44,21.65,
+2026,9,12,09/12/2026,STX,Issac Bay,17.74775,-64.57525,21:35,0:32,Clear,0-20%,Waxing Crescent,2.70%,14,Romina and Omari,22.07,21.3,21.77,21.79,21.38,21.73,
