@@ -1,3 +1,4 @@
+# Anthropogenic Light / Light Pollution Analysis for St. Croix, USVI
 
 # Load libraries
 library(tidyverse)
@@ -53,7 +54,7 @@ lw_eemp <-sqm_eemp%>%
 lw_stx <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
 
 lw_stx<-lw_stx%>%
-  filter(LOCATION!="")%>% #removes blanks under location good practice!
+  filter(LOCATION!="")%>% #removes blanks under location, good practice!
   mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
   
 # Calculate landward averages for each nesting beach. Take the average of all 
@@ -69,7 +70,7 @@ stx_lw_analysis <-lw_stx%>%
   lw_range=lw_max-lw_min)%>%
   ungroup()
 
-# Top 10 Darkest and Brightest Nesting Beaches in St. Croix
+# Top 10 Darkest and Brightest Nesting Beaches 
 
 lw_darkest <-stx_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
@@ -81,11 +82,9 @@ lw_brightest <-stx_lw_analysis%>%
 
 write.csv(lw_brightest,"Top 10 Brightest Beaches.csv")
 
-# Latest Version: 22 September 2026
 
 
-
-# Data analysis for SQM Zenith for St. Croix, USVI
+# Data analysis for SQM Zenith Skies 
 
 zenith_west <-sqm_west%>%
   select(LOCATION, POINTS, SQM.ZENITH)%>% #select the columns you want 
@@ -126,29 +125,77 @@ stx_zenith_analysis <-zenith_stx_clean%>%
   ungroup()
 
 
-# Top 10 Darkest and Brightest Night Skies
+# Top 10 Darkest and Brightest Zenith Skies
 
 zenith_darkest <-stx_zenith_analysis%>%
   slice_max(order_by=zenith_avg, n = 10) 
 
-write.csv(zenith_darkest,"Top 10 Darkest Skies.csv")
+write.csv(zenith_darkest,"Top 10 Darkest Zenith Skies.csv")
 
 zenith_brightest <-stx_zenith_analysis%>%
   slice_min(order_by=zenith_avg, n=10)
 
-write.csv(lw_brightest,"Top 10 Brightest Skies.csv")
+write.csv(lw_brightest,"Top 10 Brightest Zenith Skies.csv")
 
 
-# Latest Version: 22 September 2026
+
+# Data analysis for SQM Seaward Horizon 
+
+seaward_west <-sqm_west%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
+  mutate(REGION="West End")
+  
+seaward_north <-sqm_north%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
+  mutate(REGION="North Shore")
+
+seaward_south <-sqm_south%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
+  mutate(REGION="South Shore")
+
+seaward_eemp <-sqm_eemp%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
+  mutate(REGION="EEMP")
+
+# Combine the data sets/ stack them together
+
+seaward_stx <-rbind(seaward_west, seaward_north, seaward_south, seaward_eemp)
+
+# Remove any NA's in the dataset
+
+seaward_stx_clean<-seaward_stx%>%
+  filter(LOCATION!="")%>% #removes NA's 
+  filter(SQM..SW.!="")%>% #removes NA's 
+  mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
+
+
+stx_seaward_analysis <-seaward_stx_clean%>%
+  group_by(LOCATION, REGION)%>% #this will create one line per beach
+  summarise(points=max(POINTS),
+            seaward_avg=mean(SQM..SW.,na.rm=T),
+            seaward_median=median(SQM..SW.,na.rm=T),
+            seaward_min=min(SQM..SW.),
+            seaward_max=max(SQM..SW.),
+            seaward_range=seaward_max-seaward_min)%>%
+            ungroup()
+
+
+# Top 10 Darkest and Brightest Seaward Skies
+
+seaward_darkest <-stx_seaward_analysis%>%
+  slice_max(order_by=seaward_avg, n = 10) 
+
+write.csv(seaward_darkest,"Top 10 Darkest Seaward Skies.csv")
+
+seaward_brightest <-stx_seaward_analysis%>%
+  slice_min(order_by=seaward_avg, n=10)
+
+write.csv(seaward_brightest,"Top 10 Brightest Seaward Skies.csv")
+
 
 
 # Heat maps and scatter plots: Create one for each sector with Landward (LW) 
-# averages for each nesting beach. 
-
-
-
-
-
+# averages for each nesting beach.
 
 
 
