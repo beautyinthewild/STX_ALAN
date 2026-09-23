@@ -2,6 +2,7 @@
 
 # Load libraries
 library(tidyverse)
+library(viridis)
 
 # Combine files. Create a data name for each CSV.
 
@@ -22,16 +23,18 @@ head(sqm_west)
 tail(sqm_west)
 
 # This code shows you all the column names in the data set in your console. 
-# Scan the variable names (look out for uppercase and lowercase words)
+# Scan the variable names (look out for uppercase and lowercase words for when
+# you code your script).
 
 colnames(sqm_west)
 colnames(sqm_north)
 colnames(sqm_south)
 colnames(sqm_east)
 
-# CREATE SECONDARY DATASETS. Make a new data name for all CSVs
+# CREATE SECONDARY DATASETS. Make a new data name for all CSV files.
 # Example: Type str(lw_west) in the console to make sure your data that you
-# want to analyze is all numeric.
+# want to analyze is all numeric and not in character or else you have to 
+# convert it.
 
 lw_west <-sqm_west%>%
   select(LOCATION,POINTS, SQM..LW.)%>% #select the columns you want
@@ -82,6 +85,68 @@ lw_brightest <-stx_lw_analysis%>%
 
 write.csv(lw_brightest,"Top 10 Brightest Beaches.csv")
 
+
+# Landward values for the west end.
+
+lw_boxplot<-stx_lw_analysis%>%
+  select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
+  filter(REGION == "West End")
+
+
+# Create a plot
+
+ggplot(lw_boxplot, aes(x=LOCATION, y=lw_avg))+
+  geom_boxplot(fill = "darkblue") +
+  theme_bw()+
+  geom_errorbar(aes(ymin = lw_avg - lw_median, ymax = lw_avg + lw_median), 
+               width = 0.2) + 
+  ylim(0, 25) + 
+  labs(
+    x = "West End Nesting Beaches",
+    y = "Light Pollution (mag/arcsecs)") +
+  guides(fill=FALSE)
+
+
+ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
+  geom_col(fill = "darkblue", width = 0.7) +
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "West End Nesting Beaches",
+    y = "Average Light Pollution (mag/arcsecs)"
+  ) +
+  guides(fill = FALSE) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+
+ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
+  geom_point(color = "black", size = 2) +
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "West End Nesting Beaches",
+    y = "Average Light Pollution (mag/arcsecs)"
+  ) +
+  guides(fill = FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
+  geom_point(size = 2) +
+  scale_color_viridis_d(option = "viridis") + # clean Viridis color scheme
+  theme_bw() +
+  ylim(0, 25) + # I changed the SQM to 0-25 mag/arcsec2
+  labs(
+    x = "West End Nesting Beaches",
+    y = "Night Sky Brightness (mag/arcsecs)"
+  ) +
+  guides(color = FALSE) + # Hides the redundant legend to maximize your plot area
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
+
+# Merge the first two datasets by LOCATION, then merge the third
+sqm_west_combo <-avg_landward%>%
+  left_join(avg_seaward%>%select())
 
 
 # Data analysis for SQM Zenith Skies 
@@ -138,7 +203,6 @@ zenith_brightest <-stx_zenith_analysis%>%
 write.csv(lw_brightest,"Top 10 Brightest Zenith Skies.csv")
 
 
-
 # Data analysis for SQM Seaward Horizon 
 
 seaward_west <-sqm_west%>%
@@ -179,7 +243,6 @@ stx_seaward_analysis <-seaward_stx_clean%>%
             seaward_range=seaward_max-seaward_min)%>%
             ungroup()
 
-
 # Top 10 Darkest and Brightest Seaward Skies
 
 seaward_darkest <-stx_seaward_analysis%>%
@@ -194,14 +257,98 @@ write.csv(seaward_brightest,"Top 10 Brightest Seaward Skies.csv")
 
 
 
-# Heat maps and scatter plots: Create one for each sector with Landward (LW) 
-# averages for each nesting beach.
+# Combine landward, seaward and zenith averages to make a plot.
+
+avg_landward <-stx_lw_analysis%>%
+  select(LOCATION,REGION,lw_avg)
+
+avg_seaward <-stx_seaward_analysis%>%
+  select(LOCATION,REGION, seaward_avg)
+
+avg_zenith<-stx_zenith_analysis%>%
+  select(LOCATION,REGION, zenith_avg)
+
+# Merge the data sets together 
+
+combined_averages <- avg_landward %>%
+  left_join(avg_seaward, by = c("LOCATION", "REGION")) %>%
+  left_join(avg_zenith, by = c("LOCATION", "REGION"))
+
+sqm_averages_west <-combined_averages%>%
+  filter(REGION == "West End")
+  
+# Make a scatterplot for the West End
+
+ggplot(sqm_averages_west, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
+  geom_point(size = 2) +
+  scale_color_viridis_d(option = "viridis") + # clean Viridis color scheme
+  theme_bw() +
+  ylim(0, 25) + # I changed the SQM to 0-25 mag/arcsec2
+  labs(
+    x = "West End Nesting Beaches",
+    y = "Night Sky Brightness (mag/arcsecs)"
+  ) +
+  guides(color = FALSE) + # Hides the redundant legend to maximize your plot area
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 
 
 
+ggplot(sqm_averages_west, aes(x = LOCATION, y = mean(avg_landward, avg_seaward),)) +
+  geom_point(size = 4, alpha = 0.8) +
+  scale_color_viridis_d(
+    option = "viridis",
+    labels = c(
+      "lw_avg" = "Landward", 
+      "seaward_avg" = "Seaward", 
+      "zenith_avg" = "Zenith"
+    )
+  ) + 
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "West End Nesting Beaches",
+    y = "Average Light Pollution (mag/arcsecs)",
+    color = "Direction"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    legend.position = "right"
+  )
 
 
+______________________________________________________
+
+plot_data_west <- sqm_averages_west %>%
+  pivot_longer(
+    cols = c(lw_avg, seaward_avg, zenith_avg), 
+    names_to = "Measurement_Type", 
+    values_to = "Brightness"
+  )
+
+
+ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Measurement_Type)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_color_manual(
+    values = c(
+      "lw_avg"      = "#FF5B00",  # orange for landward
+      "seaward_avg" = "#0055FF",  # blue for seaward
+      "zenith_avg"  = "#5E35B1"   # purple for zenith
+    ),
+    labels = c("Landward Horizon", "Seaward Horizon", "Zenith Horizon")
+  ) +
+  labs(
+    x = "West End Coastal Beaches",
+    y = "Night Sky Brightness (mag/arcsec²)",
+    color = NULL  # Removes the legend title box header for a cleaner look
+  ) +
+  ylim(10, 25) +
+    theme_classic(base_size = 12) +
+  theme(
+    legend.position = "top",
+    legend.direction = "horizontal",
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
 
 
 

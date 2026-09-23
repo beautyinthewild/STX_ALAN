@@ -8,3 +8,8 @@
 # Copy the first 3 lines in your github and press enter. Then copy and paste the  
 # last four lines and press enter. Refresh your github page and all your files 
 # and folders will appear!
+
+
+# Oct 2026: Do analysis for light pollution and turtle density in October!
+# Nov 2026: Do maps in QGIS and ARCGIS
+# Dec 2026: Have Kayla Blincow check my work.
