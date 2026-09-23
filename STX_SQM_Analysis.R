@@ -142,8 +142,8 @@ write.csv(lw_brightest,"Top 10 Brightest Skies.csv")
 # Latest Version: 22 September 2026
 
 
-# Lets create plots! Create a plot for each sector with Landward (LW) averages 
-# for each nesting beach. 
+# Heat maps and scatter plots: Create one for each sector with Landward (LW) 
+# averages for each nesting beach. 
 
 
 
