@@ -3,6 +3,7 @@
 # Load libraries
 library(tidyverse)
 library(viridis)
+library(plotrix)
 
 # Combine files. Create a data name for each CSV.
 
@@ -70,7 +71,8 @@ stx_lw_analysis <-lw_stx%>%
   lw_median=median(SQM..LW.,na.rm=T),
   lw_min=min(SQM..LW.),
   lw_max=max(SQM..LW.),
-  lw_range=lw_max-lw_min)%>%
+  lw_range=lw_max-lw_min, 
+  lw_se=std.error(SQM..LW.))%>%
   ungroup()
 
 # Top 10 Darkest and Brightest Nesting Beaches 
@@ -106,17 +108,6 @@ ggplot(lw_boxplot, aes(x=LOCATION, y=lw_avg))+
     y = "Light Pollution (mag/arcsecs)") +
   guides(fill=FALSE)
 
-
-ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
-  geom_col(fill = "darkblue", width = 0.7) +
-  theme_bw() +
-  ylim(0, 25) + 
-  labs(
-    x = "West End Nesting Beaches",
-    y = "Average Light Pollution (mag/arcsecs)"
-  ) +
-  guides(fill = FALSE) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
   
 
 ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
@@ -132,7 +123,7 @@ ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
 
 
 ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
-  geom_point(size = 2) +
+  geom_point(size = 3) +
   scale_color_viridis_d(option = "viridis") + # clean Viridis color scheme
   theme_bw() +
   ylim(0, 25) + # I changed the SQM to 0-25 mag/arcsec2
@@ -280,51 +271,26 @@ sqm_averages_west <-combined_averages%>%
 # Make a scatterplot for the West End
 
 ggplot(sqm_averages_west, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
-  geom_point(size = 2) +
-  scale_color_viridis_d(option = "viridis") + # clean Viridis color scheme
+  geom_point(size = 4) +
+  scale_color_viridis_d(option = "viridis", direction=-1) + # clean Viridis color scheme
   theme_bw() +
-  ylim(0, 25) + # I changed the SQM to 0-25 mag/arcsec2
+  ylim(10, 25) + # I changed the SQM to 0-25 mag/arcsec2
   labs(
-    x = "West End Nesting Beaches",
+    x = "West End Beaches",
     y = "Night Sky Brightness (mag/arcsecs)"
   ) +
   guides(color = FALSE) + # Hides the redundant legend to maximize your plot area
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 
+# Scatter plot with lw, sw and zenith points for Frederiksted's beaches
 
-
-ggplot(sqm_averages_west, aes(x = LOCATION, y = mean(avg_landward, avg_seaward),)) +
-  geom_point(size = 4, alpha = 0.8) +
-  scale_color_viridis_d(
-    option = "viridis",
-    labels = c(
-      "lw_avg" = "Landward", 
-      "seaward_avg" = "Seaward", 
-      "zenith_avg" = "Zenith"
-    )
-  ) + 
-  theme_bw() +
-  ylim(0, 25) + 
-  labs(
-    x = "West End Nesting Beaches",
-    y = "Average Light Pollution (mag/arcsecs)",
-    color = "Direction"
-  ) +
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
-    legend.position = "right"
-  )
-
-
-______________________________________________________
 
 plot_data_west <- sqm_averages_west %>%
   pivot_longer(
     cols = c(lw_avg, seaward_avg, zenith_avg), 
     names_to = "Measurement_Type", 
-    values_to = "Brightness"
-  )
+    values_to = "Brightness")
 
 
 ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Measurement_Type)) +
@@ -347,8 +313,45 @@ ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Measurement_Typ
   theme(
     legend.position = "top",
     legend.direction = "horizontal",
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
+
+
+ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, shape=Measurement_Type)) +
+  geom_point(size = 4, alpha = 0.9) +
+  # Using the continuous scale (_c) with direction = -1 makes high values dark and low values bright
+  scale_color_viridis_c(option = "viridis", direction = -1) + 
+  theme_bw() +
+  ylim(10, 25) + 
+  labs(
+    x = "West-end Beaches",
+    y = "Night Sky Brightness (mag/arcsecs)",
+    color = "Brightness"
+  ) +
+  theme(
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
   )
+
+
+# Boxplot for each sector using landward values
+
+ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
+  geom_boxplot()+
+  geom_jitter(width=.1, alpha=.5)+
+  theme_bw() +
+  ylim(10, 25) + 
+  labs(
+    x = "",
+    y = "Night Sky Brightness (mag/arcsecs)"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )+
+  guides(color="none")
+
+
+
+
 
 
 
