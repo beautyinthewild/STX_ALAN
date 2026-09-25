@@ -304,8 +304,8 @@ ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Measurement_Typ
     labels = c("Landward Horizon", "Seaward Horizon", "Zenith Horizon")
   ) +
   labs(
-    x = "West End Coastal Beaches",
-    y = "Night Sky Brightness (mag/arcsec²)",
+    x = "West End",
+    y = "Brightness (mag/arcsec²)",
     color = NULL  # Removes the legend title box header for a cleaner look
   ) +
   ylim(10, 25) +
