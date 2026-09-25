@@ -345,9 +345,41 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
     y = "Night Sky Brightness (mag/arcsecs)"
   ) +
   theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+    axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 1, face="bold")
   )+
   guides(color="none")
+
+
+
+# Rearrange regions with code: West End, North Shore, South Shore, East End
+
+stx_lw_analysis$REGION <- factor(stx_lw_analysis$REGION, 
+                                 levels = c("West End", "North Shore", "South Shore", "East End"))
+
+
+# Boxplot for each sector displayed
+
+ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
+  geom_boxplot()+
+  geom_jitter(shape = 21, fill="white", stroke = 1.5, width = .1, size = 2.5)+
+  theme_bw() +
+  ylim(10, 25) + 
+  labs(
+    x = "",
+    y = "Night Sky Brightness (mag/arcsecs)"
+  ) +
+  theme(
+    text = element_text(family = "Serif", size = 13, color="black"),
+    axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 0.5, color="black"),
+    axis.text.y = element_text(color = "black"),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)))+
+  guides(color="none")
+
+
+
+
+
+
 
 
 
