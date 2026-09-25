@@ -361,7 +361,7 @@ stx_lw_analysis$REGION <- factor(stx_lw_analysis$REGION,
 
 ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   geom_boxplot()+
-  geom_jitter(shape = 21, fill="white", stroke = 1.5, width = .1, size = 2.5)+
+  geom_jitter(shape = 21, fill="white", stroke = 1.5, width = .1, size = 1.8)+
   theme_bw() +
   ylim(10, 25) + 
   labs(
