@@ -316,20 +316,23 @@ ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Measurement_Typ
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 
+# Brightness Scale for West-End Beaches (includes lw, sw and zenith)
 
 ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, shape=Measurement_Type)) +
-  geom_point(size = 2.5, alpha = 0.9) +
-  # Using the continuous scale (_c) with direction = -1 makes high values dark and low values bright
-  scale_color_viridis_c(option = "viridis", direction = -1) + 
+  geom_point(size = 3.5, alpha = 0.9) +
+  scale_color_viridis_c(name= "Brightness Scale", option = "viridis", direction = -1) + 
   theme_bw() +
   ylim(10, 25) + 
   labs(
     x = "West-end Beaches",
     y = "Brightness (mag/arcsecs)",
-    color = "Brightness"
+    color = "Brightness",
+    shape = "Horizon Measurements",
   ) +
   theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+    panel.background = element_rect(fill = "white", color = NA),
+    axis.text.y = element_text(color = "black"),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"))
 
 
 # Boxplot for each sector using landward values
