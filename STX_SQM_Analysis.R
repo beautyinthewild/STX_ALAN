@@ -95,28 +95,15 @@ lw_boxplot<-stx_lw_analysis%>%
   filter(REGION == "West End")
 
 
-# Create a plot
-
-ggplot(lw_boxplot, aes(x=LOCATION, y=lw_avg))+
-  geom_boxplot(fill = "darkblue") +
-  theme_bw()+
-  geom_errorbar(aes(ymin = lw_avg - lw_median, ymax = lw_avg + lw_median), 
-               width = 0.2) + 
-  ylim(0, 25) + 
-  labs(
-    x = "West End Nesting Beaches",
-    y = "Light Pollution (mag/arcsecs)") +
-  guides(fill=FALSE)
-
-  
+# Scatter plot of nesting beaches in the West End
 
 ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
   geom_point(color = "black", size = 2) +
   theme_bw() +
   ylim(0, 25) + 
   labs(
-    x = "West End Nesting Beaches",
-    y = "Average Light Pollution (mag/arcsecs)"
+    x = "West End",
+    y = "Landward Brightness (mag/arcsecs)"
   ) +
   guides(fill = FALSE) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
