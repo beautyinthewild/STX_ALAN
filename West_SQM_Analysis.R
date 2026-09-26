@@ -115,8 +115,8 @@ ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
   theme_bw() +
   ylim(0, 25) + # I changed the SQM to 0-25 mag/arcsec2
   labs(
-    x = "West End Nesting Beaches",
-    y = "Night Sky Brightness (mag/arcsecs)"
+    x = "West End Beaches",
+    y = "Brightness (mag/arcsecs)"
   ) +
   guides(color = FALSE) + # Hides the redundant legend to maximize your plot area
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
@@ -264,7 +264,7 @@ ggplot(sqm_averages_west, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
   ylim(10, 25) + # I changed the SQM to 0-25 mag/arcsec2
   labs(
     x = "West End",
-    y = "Brightness (mag/arcsecs)"
+    y = "Brightness (mag/arcsec²)"
   ) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"))
 
