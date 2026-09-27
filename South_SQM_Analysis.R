@@ -1,1 +1,0 @@
-# SQM analysis for South Shore
