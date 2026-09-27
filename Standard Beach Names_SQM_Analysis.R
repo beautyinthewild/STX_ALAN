@@ -181,20 +181,20 @@ write.csv(lw_brightest,"Top 10 Brightest Zenith Skies.csv")
 
 # Data analysis for SQM Seaward Horizon 
 
-seaward_west <-sqm_west%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+seaward_west <-SQM_west%>%
+  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
   mutate(REGION="West End")
 
-seaward_north <-sqm_north%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+seaward_north <-SQM_north%>%
+  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
   mutate(REGION="North Shore")
 
-seaward_south <-sqm_south%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+seaward_south <-SQM_south%>%
+  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
   mutate(REGION="South Shore")
 
-seaward_eemp <-sqm_eemp%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+seaward_eemp <-SQM_eemp%>%
+  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
   mutate(REGION="EEMP")
 
 # Combine the data sets/ stack them together
@@ -204,13 +204,13 @@ seaward_stx <-rbind(seaward_west, seaward_north, seaward_south, seaward_eemp)
 # Remove any NA's in the dataset
 
 seaward_stx_clean<-seaward_stx%>%
-  filter(LOCATION!="")%>% #removes NA's 
+  filter(STANDARD.NAME!="")%>% #removes NA's 
   filter(SQM..SW.!="")%>% #removes NA's 
-  mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
+  mutate(STANDARD.NAME=as.factor(STANDARD.NAME),REGION=as.factor(REGION))
 
 
 stx_seaward_analysis <-seaward_stx_clean%>%
-  group_by(LOCATION, REGION)%>% #this will create one line per beach
+  group_by(STANDARD.NAME, REGION)%>% #this will create one line per beach
   summarise(points=max(POINTS),
             seaward_avg=mean(SQM..SW.,na.rm=T),
             seaward_median=median(SQM..SW.,na.rm=T),
@@ -224,12 +224,12 @@ stx_seaward_analysis <-seaward_stx_clean%>%
 seaward_darkest <-stx_seaward_analysis%>%
   slice_max(order_by=seaward_avg, n = 10) 
 
-write.csv(seaward_darkest,"Top 10 Darkest Seaward Skies.csv")
+write.csv(seaward_darkest,"Standard_Top 10 Darkest Seaward Skies_.csv")
 
 seaward_brightest <-stx_seaward_analysis%>%
   slice_min(order_by=seaward_avg, n=10)
 
-write.csv(seaward_brightest,"Top 10 Brightest Seaward Skies.csv")
+write.csv(seaward_brightest,"Standard_Top 10 Brightest Seaward Skies.csv")
 
 
 
