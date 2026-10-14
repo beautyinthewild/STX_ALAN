@@ -58,7 +58,7 @@ lw_eemp <-SQM_eemp%>%
 lw_stx <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
 
 # Clean out the NA rows
-lw_stx <- lw_stx %>% 
+lw_stx_clean <- lw_stx %>% 
   drop_na(STANDARD.NAME, POINTS, SQM..LW.)
 
 # Calculate landward averages for each nesting beach. Take the average of all 
@@ -143,7 +143,7 @@ zenith_south <-SQM_south%>%
 
 zenith_eemp <-SQM_eemp%>%
   select(STANDARD.NAME, POINTS, SQM.ZENITH)%>%
-  mutate(REGION="EEMP")
+  mutate(REGION="East End")
 
 # Combine the data sets/ stack them together
 
@@ -195,7 +195,7 @@ seaward_south <-SQM_south%>%
 
 seaward_eemp <-SQM_eemp%>%
   select(STANDARD.NAME, POINTS, SQM..SW.)%>%
-  mutate(REGION="EEMP")
+  mutate(REGION="East End")
 
 # Combine the data sets/ stack them together
 
@@ -236,26 +236,26 @@ write.csv(seaward_brightest,"Standard_Top 10 Brightest Seaward Skies.csv")
 # Combine landward, seaward and zenith averages to make a plot.
 
 avg_landward <-stx_lw_analysis%>%
-  select(LOCATION,REGION,lw_avg)
+  select(STANDARD.NAME,REGION,lw_avg)
 
 avg_seaward <-stx_seaward_analysis%>%
-  select(LOCATION,REGION, seaward_avg)
+  select(STANDARD.NAME,REGION, seaward_avg)
 
-avg_zenith<-stx_zenith_analysis%>%
-  select(LOCATION,REGION, zenith_avg)
+avg_zenith <-stx_zenith_analysis%>%
+  select(STANDARD.NAME,REGION, zenith_avg)
 
 # Merge the data sets together 
 
 combined_averages <- avg_landward %>%
-  left_join(avg_seaward, by = c("LOCATION", "REGION")) %>%
-  left_join(avg_zenith, by = c("LOCATION", "REGION"))
+  left_join(avg_seaward, by = c("STANDARD.NAME", "REGION")) %>%
+  left_join(avg_zenith, by = c("STANDARD.NAME", "REGION"))
 
 sqm_averages_west <-combined_averages%>%
   filter(REGION == "West End")
 
 # Make a simple scatter plot for the West End
 
-ggplot(sqm_averages_west, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
+ggplot(sqm_averages_west, aes(x = STANDARD.NAME, y = lw_avg, color = LOCATION)) +
   geom_point(size = 4, color="black") +
   scale_color_viridis_d(option = "viridis", direction=-1) + # clean Viridis color scheme
   theme_bw() +
@@ -328,7 +328,7 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   ylim(10, 25) + 
   labs(
     x = "",
-    y = "Night Sky Brightness (mag/arcsecs)"
+    y = "Brightness (mag/arcsecs)"
   ) +
   theme(
     axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 1, face="bold")
@@ -364,6 +364,22 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
 
 
 
+# Boxplot for landward, seaward, and zenith averages across sectors
+
+
+
+# 2. Plot with facet_wrap
+ggplot(lw_boxplot_long, aes(x = STANDARD.NAME, y = Brightness_Value)) +
+  geom_point(color = "black", size = 2) +
+  facet_wrap(~ Average_Type, scales = "free_y", ncol = 1) + # Splits into 3 stacked panels
+  theme_bw() +
+  ylim(10, 25) +
+  labs(
+    x = "West End Beaches",
+    y = "Sky Quality Brightness (mag/arcsec²)",
+    title = "Comparison of Sky Brightness Metrics"
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 
 
