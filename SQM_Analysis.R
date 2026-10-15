@@ -4,6 +4,7 @@
 library(tidyverse)
 library(viridis)
 library(plotrix)
+library(usethis)
 
 # Combine files. Create a data name for each CSV.
 
