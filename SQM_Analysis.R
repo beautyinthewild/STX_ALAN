@@ -236,6 +236,7 @@ write.csv(lw_brightest,"Zenith Brightest Skies_Local Names.csv")
 zenith_boxplot<-stx_zenith_analysis%>%
   select(LOCATION, REGION, zenith_avg, zenith_median, zenith_min, zenith_max, zenith_range)
 
+
 ### Zenith Plot for St. Croix Beaches
 
 ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg, color = LOCATION)) + 
@@ -277,44 +278,38 @@ ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg)) 
   )
 
 
-
-
-
-
-
-
-# Data analysis for SQM Seaward Horizon 
+### Data analysis for Seaward Horizon 
 
 seaward_west <-SQM_west%>%
-  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="West End")
 
 seaward_north <-SQM_north%>%
-  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="North Shore")
 
 seaward_south <-SQM_south%>%
-  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="South Shore")
 
 seaward_eemp <-SQM_eemp%>%
-  select(STANDARD.NAME, POINTS, SQM..SW.)%>%
+  select(LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="East End")
 
 # Combine the data sets/ stack them together
 
 seaward_stx <-rbind(seaward_west, seaward_north, seaward_south, seaward_eemp)
 
-# Remove any NA's in the dataset
+# Remove NA's in the dataset
 
 seaward_stx_clean<-seaward_stx%>%
-  filter(STANDARD.NAME!="")%>% #removes NA's 
+  filter(LOCATION!="")%>% #removes NA's 
   filter(SQM..SW.!="")%>% #removes NA's 
-  mutate(STANDARD.NAME=as.factor(STANDARD.NAME),REGION=as.factor(REGION))
+  mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
 
 
 stx_seaward_analysis <-seaward_stx_clean%>%
-  group_by(STANDARD.NAME, REGION)%>% #this will create one line per beach
+  group_by(LOCATION, REGION)%>% #this will create one line per beach
   summarise(points=max(POINTS),
             seaward_avg=mean(SQM..SW.,na.rm=T),
             seaward_median=median(SQM..SW.,na.rm=T),
@@ -323,17 +318,46 @@ stx_seaward_analysis <-seaward_stx_clean%>%
             seaward_range=seaward_max-seaward_min)%>%
   ungroup()
 
-# Top 10 Darkest and Brightest Seaward Skies
+
+### Top 10 Darkest Seaward Skies - Local Names
 
 seaward_darkest <-stx_seaward_analysis%>%
   slice_max(order_by=seaward_avg, n = 10) 
 
-write.csv(seaward_darkest,"Standard_Top 10 Darkest Seaward Skies_.csv")
+write.csv(seaward_darkest,"Darkest Seaward Skies_Local Names.csv")
+
+### Top 10 Brightest Seaward Skies - Local Names
 
 seaward_brightest <-stx_seaward_analysis%>%
   slice_min(order_by=seaward_avg, n=10)
 
-write.csv(seaward_brightest,"Standard_Top 10 Brightest Seaward Skies.csv")
+write.csv(seaward_brightest,"Brightest Seaward Skies_Local Names.csv")
+
+# Seaward values for St. Croix
+
+seaward_boxplot<-stx_seaward_analysis%>%
+  select(LOCATION, REGION, seaward_avg, seaward_median, seaward_min, seaward_max, seaward_range)
+
+### Seaward Plot
+
+ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg, color = LOCATION)) + 
+  geom_point(color = "black", size = 3.5) +
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "Nesting Beaches",
+    y = "Seaward Brightness (mag/arcsecs)"
+  ) +
+  guides(fill = FALSE)+
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = "black"),
+    axis.title.y = element_text(margin = margin(r = 10), color = "black"))
+
+
+
+
+
+
 
 
 
