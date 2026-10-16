@@ -547,21 +547,85 @@ theme(
 
 
 
+### Combination for South Shore
+
+sqm_averages_south <-combined_averages%>%
+  filter(REGION == "South Shore")
+
+# Combined directions for North Shore. Reshape the data. 
+
+plot_data_south <- sqm_averages_south %>%
+  pivot_longer(
+    cols = c(lw_avg, seaward_avg, zenith_avg), 
+    names_to = "Measurement_Type", 
+    values_to = "Brightness")
+
+
 ###Brightness Scale for South Shore Beaches
 
 
+ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, color = Brightness, shape = Measurement_Type)) + 
+  geom_point(size = 5, alpha = 0.8) +
+  theme_bw() +
+  labs(
+    x = "South Shore Beaches",
+    y = "Brightness (mag/arcsec²)",
+    color = "Brightness",
+    shape = "Measurement Type") +
+  # Viridis continuous color scale
+  scale_color_viridis_c(name = "Brightness Scale", option = "viridis", direction= -1) +
+  scale_shape_manual(
+    values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
+    labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
+  ylim(18,22)+
+  theme(
+    panel.background = element_rect(fill = "white", color = NA),
+    axis.text.y = element_text(color = "black", size = 9),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color= "black"),
+    axis.title.x = element_text(margin = margin(t = 15)),
+    legend.position = "right")
 
 
 
+###Brightness Scale for East End Marine Park
 
 
+### Combination for EEMP
+
+sqm_averages_eemp <-combined_averages%>%
+  filter(REGION == "East End")
+
+# Combined directions for North Shore. Reshape the data. 
+
+plot_data_eemp <- sqm_averages_eemp %>%
+  pivot_longer(
+    cols = c(lw_avg, seaward_avg, zenith_avg), 
+    names_to = "Measurement_Type", 
+    values_to = "Brightness")
 
 
-
-
-
-
-
+ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, color = Brightness, shape = Measurement_Type)) + 
+  geom_point(size = 5.5, alpha = 0.8) +
+  theme_bw() +
+  labs(
+    x = "East End Marine Park",
+    y = "Brightness (mag/arcsec²)",
+    color = "Brightness",
+    shape = "Measurement Type") +
+  # Viridis continuous color scale
+  scale_color_viridis_c(name = "Brightness Scale", option = "viridis", direction= -1) +
+  scale_shape_manual(
+    values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
+    labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
+  ylim(19,22)+
+  theme(
+    panel.background = element_rect(fill = "white", color = NA),
+    axis.text.y = element_text(color = "black", size = 9),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color= "black"),
+    axis.title.x = element_text(margin = margin(t = 15)),
+    legend.position = "right")
 
 
 
