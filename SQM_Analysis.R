@@ -142,30 +142,35 @@ lw_boxplot<-stx_lw_analysis%>%
 
 
 # Scatter plot of nesting beaches in the West End
+## From highest to lowest brightness
 
-ggplot(lw_boxplot, aes(x = STANDARD.NAME, y = lw_avg)) +
-  geom_point(color = "black", size = 2) +
+ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCATION)) + 
+  geom_point(color = "black", size = 3.5) +
   theme_bw() +
-  ylim(10, 25) + 
-  labs(
-    x = "West End",
-    y = "Landward Brightness (mag/arcsecs)"
-  ) +
-  guides(fill = FALSE) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-
-ggplot(lw_boxplot, aes(x = STANDARD.NAME, y = lw_avg, color = STANDARD.NAME)) +
-  geom_point(size = 3) +
-  scale_color_viridis_d(option = "viridis") + # clean Viridis color scheme
-  theme_bw() +
-  ylim(0, 25) + # I changed the SQM to 0-25 mag/arcsec2
+  ylim(0, 25) + 
   labs(
     x = "West End Beaches",
-    y = "Brightness (mag/arcsecs)"
+    y = "Landward Brightness (mag/arcsecs)"
   ) +
-  guides(color = FALSE) + # Hides the redundant legend to maximize your plot area
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  guides(fill = FALSE)+
+  theme( 
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(margin = margin(r = 10)))
+
+# Scatter Plot - Beaches in alphabetical order
+
+ggplot(lw_boxplot, aes(x =LOCATION, y = lw_avg, color = LOCATION)) + 
+  geom_point(color = "black", size = 3.5) +
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "West End Beaches",
+    y = "Landward Brightness (mag/arcsecs)"
+  ) +
+  guides(fill = FALSE)+
+  theme( 
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(margin = margin(r = 10)))
 
 
 # Merge the first two data sets by LOCATION, then merge the third***
@@ -173,22 +178,22 @@ sqm_west_combo <-avg_landward%>%
   left_join(avg_seaward%>%select())
 
 
-### Data analysis for SQM Zenith Skies 
+### Data analysis for Zenith Skies 
 
 zenith_west <-SQM_west%>%
-  select(STANDARD.NAME, POINTS, SQM.ZENITH)%>% #select the columns you want 
+  select(LOCATION, POINTS, SQM.ZENITH)%>% #select the columns you want 
   mutate(REGION="West End")
 
 zenith_north <-SQM_north%>%
-  select(STANDARD.NAME, POINTS, SQM.ZENITH)%>% 
+  select(LOCATION, POINTS, SQM.ZENITH)%>% 
   mutate(REGION="North Shore")
 
 zenith_south <-SQM_south%>%
-  select(STANDARD.NAME, POINTS, SQM.ZENITH)%>%
+  select(LOCATION, POINTS, SQM.ZENITH)%>%
   mutate(REGION="South Shore")
 
 zenith_eemp <-SQM_eemp%>%
-  select(STANDARD.NAME, POINTS, SQM.ZENITH)%>%
+  select(LOCATION, POINTS, SQM.ZENITH)%>%
   mutate(REGION="East End")
 
 # Combine the data sets/ stack them together
@@ -196,13 +201,13 @@ zenith_eemp <-SQM_eemp%>%
 zenith_stx <-rbind(zenith_west, zenith_north, zenith_south, zenith_eemp) 
 
 zenith_stx_clean<-zenith_stx%>%
-  drop_na(STANDARD.NAME, POINTS, SQM.ZENITH, REGION)
+  drop_na(LOCATION, POINTS, SQM.ZENITH, REGION)
 
-# Calculate landward averages for each nesting beach. Take the average of all 
-# the points for each survey site.
+# Calculate zenith averages for each nesting beach. Take the average of all 
+# the points for each site.
 
 stx_zenith_analysis <-zenith_stx%>%
-  group_by(STANDARD.NAME, REGION)%>% #this will create one line per beach
+  group_by(LOCATION, REGION)%>% #this will create one line per beach
   summarise(points=max(POINTS),
             zenith_avg=mean(SQM.ZENITH,na.rm=T),
             zenith_median=median(SQM.ZENITH,na.rm=T),
@@ -212,17 +217,19 @@ stx_zenith_analysis <-zenith_stx%>%
   ungroup()
 
 
-# Top 10 Darkest and Brightest Zenith Skies
+### Top 10 Darkest Zenith Skies - Local Names
 
 zenith_darkest <-stx_zenith_analysis%>%
   slice_max(order_by=zenith_avg, n = 10) 
 
-write.csv(zenith_darkest,"Top 10 Darkest Zenith Skies.csv")
+write.csv(zenith_darkest,"Zenith Darkest Beaches_Local Names.csv")
+
+### Top 10 Brightest Zenith Skies - Local Names
 
 zenith_brightest <-stx_zenith_analysis%>%
   slice_min(order_by=zenith_avg, n=10)
 
-write.csv(lw_brightest,"Top 10 Brightest Zenith Skies.csv")
+write.csv(lw_brightest,"Zenith Brightest Skies_Local Names.csv")
 
 
 # Data analysis for SQM Seaward Horizon 

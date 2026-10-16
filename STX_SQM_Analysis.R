@@ -126,7 +126,7 @@ ggplot(lw_boxplot, aes(x =LOCATION, y = lw_avg, color = LOCATION)) +
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     axis.title.y = element_text(margin = margin(r = 10)))
 
-
+#### Delete?
 ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
   geom_point(size = 3) +
   scale_color_viridis_d(option = "viridis") + # clean Viridis color scheme
@@ -145,9 +145,9 @@ sqm_west_combo <-avg_landward%>%
   left_join(avg_seaward%>%select())
 
 
-# Data analysis for SQM Zenith Skies 
+### Data analysis for Zenith Skies 
 
-zenith_west <-sqm_west%>%
+zenith_west <-SQM_west%>%
   select(LOCATION, POINTS, SQM.ZENITH)%>% #select the columns you want 
   mutate(REGION="West End")
   
