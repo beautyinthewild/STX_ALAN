@@ -96,17 +96,35 @@ lw_boxplot<-stx_lw_analysis%>%
 
 
 # Scatter plot of nesting beaches in the West End
+## From highest to lowest brightness
 
-ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg)) +
-  geom_point(color = "black", size = 2) +
+ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCATION)) + 
+  geom_point(color = "black", size = 3.5) +
   theme_bw() +
   ylim(0, 25) + 
   labs(
-    x = "West End",
+    x = "West End Beaches",
     y = "Landward Brightness (mag/arcsecs)"
   ) +
-  guides(fill = FALSE) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  guides(fill = FALSE)+
+  theme( 
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(margin = margin(r = 10)))
+
+# Scatter Plot - Beaches in alphabetical order
+
+ggplot(lw_boxplot, aes(x =LOCATION, y = lw_avg, color = LOCATION)) + 
+  geom_point(color = "black", size = 3.5) +
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "West End Beaches",
+    y = "Landward Brightness (mag/arcsecs)"
+  ) +
+  guides(fill = FALSE)+
+  theme( 
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(margin = margin(r = 10)))
 
 
 ggplot(lw_boxplot, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
