@@ -4,7 +4,6 @@
 library(tidyverse)
 library(viridis)
 library(plotrix)
-library(usethis)
 
 # Combine files. Create a data name for each CSV.
 
@@ -478,6 +477,106 @@ ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, sha
     panel.background = element_rect(fill = "white", color = NA),
     axis.text.y = element_text(color = "black"),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"))
+
+
+
+### Combination for North Shore
+
+sqm_averages_north <-combined_averages%>%
+  filter(REGION == "North Shore")
+
+# Combined directions for North Shore. Reshape the data. 
+
+plot_data_north <- sqm_averages_north %>%
+  pivot_longer(
+    cols = c(lw_avg, seaward_avg, zenith_avg), 
+    names_to = "Measurement_Type", 
+    values_to = "Brightness")
+
+###Scale for North Shore Beaches (Combination LW, SW and Zenith)
+
+
+ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, color = Measurement_Type, shape = Measurement_Type)) + 
+  geom_point(size = 4, alpha = 0.8) +
+  theme_bw() +
+  labs(
+    x = "North Shore Beaches",
+    y = "Brightness (mag/arcsec²)",
+    color = "Measurement Type",
+    shape = "Measurement Type"
+  ) +
+  # Using the colorblind-friendly palette 
+  scale_color_manual(
+    values = c("lw_avg" = "#E69F00", "seaward_avg" = "#56B4E9", "zenith_avg" = "#000000"),
+    labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")
+  ) + 
+  scale_shape_manual(
+    values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15), # Circle, Triangle, Square
+    labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")
+  ) +
+  theme(
+    panel.background = element_rect(fill = "white", color = NA),
+    axis.text.y = element_text(color = "black", size = 9),
+    axis.title.x = element_text(margin = margin(t = 15)),
+    legend.position = "right"
+  )
+
+###Brightness Scale for North Shore Beaches
+
+ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, color = Brightness, shape = Measurement_Type)) + 
+  geom_point(size = 5, alpha = 0.8) +
+  theme_bw() +
+  labs(
+    x = "North Shore Beaches",
+    y = "Brightness (mag/arcsec²)",
+    color = "Brightness",
+    shape = "Measurement Type") +
+  # Viridis continuous color scale
+  scale_color_viridis_c(name = "Brightness Scale", option = "viridis", direction= -1) +
+  scale_shape_manual(
+    values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
+    labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
+  ylim(15,25)+
+theme(
+    panel.background = element_rect(fill = "white", color = NA),
+    axis.text.y = element_text(color = "black", size = 9),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color= "black"),
+    axis.title.x = element_text(margin = margin(t = 15)),
+    legend.position = "right")
+
+
+
+###Brightness Scale for South Shore Beaches
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Boxplot for each sector using landward values
