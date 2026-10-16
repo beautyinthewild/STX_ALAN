@@ -137,7 +137,7 @@ write.csv(local_lw_brightest,"LW Brightest Beaches_Local Names.csv")
 # Landward values for the west end.
 
 lw_boxplot<-stx_lw_analysis%>%
-  select(STANDARD.NAME, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
+  select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
   filter(REGION == "West End")
 
 
@@ -230,6 +230,57 @@ zenith_brightest <-stx_zenith_analysis%>%
   slice_min(order_by=zenith_avg, n=10)
 
 write.csv(lw_brightest,"Zenith Brightest Skies_Local Names.csv")
+
+# Zenith Values for St. Croix
+
+zenith_boxplot<-stx_zenith_analysis%>%
+  select(LOCATION, REGION, zenith_avg, zenith_median, zenith_min, zenith_max, zenith_range)
+
+### Zenith Plot for St. Croix Beaches
+
+ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg, color = LOCATION)) + 
+  geom_point(color = "black", size = 3.5) +
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "Nesting Beaches",
+    y = "Zenith Brightness (mag/arcsecs)"
+  ) +
+  guides(fill = FALSE)+
+  theme(
+  axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = "black"),
+axis.title.y = element_text(margin = margin(r = 10), color = "black"))
+
+
+### Cleveland Dot Plot for Zenith
+
+ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg)) + 
+  geom_segment(
+    aes(xend = reorder(LOCATION, -zenith_avg), yend = 0), 
+    color = "grey75",   # Muted grey so it doesn't distract from the dots
+    linewidth = 0.6     # Clean, thin line weight
+  ) +
+    geom_point(color = "black", size = 3.5) + #data points
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "Sea Turtle Beaches",
+    y = "Zenith Brightness (mag/arcsecs)"
+  ) +
+  theme( 
+    axis.text = element_text(color = "black"),
+    axis.title = element_text(color = "black"),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = "black"),
+    axis.title.y = element_text(margin = margin(r = 10), color = "black"),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank()
+  )
+
+
+
+
+
+
 
 
 # Data analysis for SQM Seaward Horizon 
