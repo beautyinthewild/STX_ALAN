@@ -104,29 +104,33 @@ local_lw_analysis <-lw_stx%>%
             lw_se=std.error(SQM..LW.))%>%
   ungroup()
 
-# Top 10 Darkest Beaches Using Standard Beach Names
+### Top 10 Darkest Beaches - Standard Beach Names
 
 lw_darkest <-stx_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
 
-write.csv(lw_darkest,"Top 10 Darkest Beaches Standard Names.csv")
+write.csv(lw_darkest,"LW Darkest Beaches_Standard Names.csv")
+
+### Top 10 Brightest Beaches - Standard Beach Names
 
 lw_brightest <-stx_lw_analysis%>%
   slice_min(order_by=lw_avg, n=10)
 
-write.csv(lw_brightest,"Top 10 Brightest Beaches Standard Names.csv")
+write.csv(lw_brightest,"LW Brightest Beaches_Standard Names.csv")
 
-# Top 10 Darkest Beaches Using Local Beach Names
+#### Top 10 Darkest Beaches - Local Beach Names
 
 local_lw_darkest <-local_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
 
-write.csv(local_lw_darkest,"Top 10 Darkest Beaches Local Names.csv")
+write.csv(local_lw_darkest,"LW Darkest Beaches_Local Names.csv")
 
-# Top 10 Brightest Beaches Using Local Beach Names
+### Top 10 Brightest Beaches - Local Beach Names
 
 local_lw_brightest <-local_lw_analysis%>%
   slice_min(order_by=lw_avg, n=10)
+
+write.csv(local_lw_brightest,"LW Brightest Beaches_Local Names.csv")
 
 
 # Landward values for the west end.
