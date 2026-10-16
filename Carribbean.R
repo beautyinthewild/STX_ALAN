@@ -44,3 +44,36 @@ ggplot(data = caribe_clean, aes(x = Countries)) +
     legend.position = "top"
   ) +
   labs(x = "Caribbean Countries")
+
+
+
+ggplot(data = caribe_clean, aes(x = reorder(Countries, -Sky.Brightness))) +
+  geom_point(aes(y = Sky.Brightness, color = "Sky Brightness"), size = 3.5) +
+  geom_point(aes(y = Milky.Way.Num / scale_factor, color = "Milky Way Hidden (%)"), size = 3.5) +
+  scale_y_continuous(
+    name = "Sky Brightness (mag/arcsec²)",
+    limits = c(0, 23),
+    sec.axis = sec_axis(
+      ~ . * scale_factor,
+      name = "Milky Way Hidden (%)",
+      breaks = seq(0, 100, 10)   # numeric 0–100% scale
+    )
+  ) +
+  scale_color_manual(
+    values = c("Sky Brightness" = "#0072B2", "Milky Way Hidden (%)" = "#CC79A7")
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(r = 15), color="black"), 
+    axis.title.y.right = element_text(margin = margin(l = 15), color="black"),
+    legend.title = element_blank(),
+    legend.position = "top"
+  ) +
+  labs(x = "Caribbean Countries")
+
+
+
+
+
