@@ -538,7 +538,6 @@ ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
   scale_shape_manual(
     values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
     labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
-  ylim(16,25)+
 theme(
     panel.background = element_rect(fill = "white", color = NA),
     axis.text.y = element_text(color = "black", size = 9),
@@ -580,7 +579,6 @@ ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
   scale_shape_manual(
     values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
     labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
-  ylim(18,22)+
   theme(
     panel.background = element_rect(fill = "white", color = NA),
     axis.text.y = element_text(color = "black", size = 9),
@@ -622,7 +620,7 @@ ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, c
   scale_shape_manual(
     values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
     labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
-  ylim(19,22)+
+  ylim(15,25)+
   theme(
     panel.background = element_rect(fill = "white", color = NA),
     axis.text.y = element_text(color = "black", size = 9),
@@ -657,7 +655,7 @@ ggplot(local_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   ylim(10, 25) + 
   labs(
     x = "",
-    y = "Brightness (mag/arcsecs)"
+    y = "Landward Brightness (mag/arcsecs)"
   ) +
   theme(
     text = element_text(family = "Serif", size = 13, color="black"),
