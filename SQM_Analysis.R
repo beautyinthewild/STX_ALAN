@@ -524,7 +524,7 @@ ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
 ###Brightness Scale for North Shore Beaches
 
 ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, color = Brightness, shape = Measurement_Type)) + 
-  geom_point(size = 5, alpha = 0.8) +
+  geom_point(size = 5.5, alpha = 0.8) +
   theme_bw() +
   labs(
     x = "North Shore Beaches",
@@ -532,17 +532,18 @@ ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     color = "Brightness",
     shape = "Measurement Type") +
   # Viridis continuous color scale
-  scale_color_viridis_c(name = "Brightness Scale", option = "viridis", direction= -1) +
+  scale_color_viridis_c(name = "Sky Brightness Units", option = "viridis", direction= -1) +
   scale_shape_manual(
     values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
     labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
-  ylim(15,25)+
+  ylim(16,25)+
 theme(
     panel.background = element_rect(fill = "white", color = NA),
     axis.text.y = element_text(color = "black", size = 9),
     axis.title.y = element_text(margin = margin(r = 10)),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color= "black"),
     axis.title.x = element_text(margin = margin(t = 15)),
+    legend.title = element_text(hjust = 0.5),
     legend.position = "right")
 
 
@@ -573,7 +574,7 @@ ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     color = "Brightness",
     shape = "Measurement Type") +
   # Viridis continuous color scale
-  scale_color_viridis_c(name = "Brightness Scale", option = "viridis", direction= -1) +
+  scale_color_viridis_c(name = "Sky Brightness Units", option = "viridis", direction= -1) +
   scale_shape_manual(
     values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
     labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
@@ -584,6 +585,7 @@ ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     axis.title.y = element_text(margin = margin(r = 10)),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color= "black"),
     axis.title.x = element_text(margin = margin(t = 15)),
+    legend.title = element_text(hjust = 0.5),
     legend.position = "right")
 
 
@@ -614,7 +616,7 @@ ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, c
     color = "Brightness",
     shape = "Measurement Type") +
   # Viridis continuous color scale
-  scale_color_viridis_c(name = "Brightness Scale", option = "viridis", direction= -1) +
+  scale_color_viridis_c(name = "Sky Brightness Units", option = "viridis", direction= -1) +
   scale_shape_manual(
     values = c("lw_avg" = 16, "seaward_avg" = 17, "zenith_avg" = 15),
     labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")) +
@@ -625,6 +627,7 @@ ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, c
     axis.title.y = element_text(margin = margin(r = 10)),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color= "black"),
     axis.title.x = element_text(margin = margin(t = 15)),
+    legend.title = element_text(hjust = 0.5),
     legend.position = "right")
 
 
