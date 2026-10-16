@@ -104,6 +104,7 @@ local_lw_analysis <-lw_stx%>%
             lw_se=std.error(SQM..LW.))%>%
   ungroup()
 
+
 ### Top 10 Darkest Beaches - Standard Beach Names
 
 lw_darkest <-stx_lw_analysis%>%
@@ -167,12 +168,12 @@ ggplot(lw_boxplot, aes(x = STANDARD.NAME, y = lw_avg, color = STANDARD.NAME)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 
-# Merge the first two datasets by LOCATION, then merge the third
+# Merge the first two data sets by LOCATION, then merge the third***
 sqm_west_combo <-avg_landward%>%
   left_join(avg_seaward%>%select())
 
 
-# Data analysis for SQM Zenith Skies 
+### Data analysis for SQM Zenith Skies 
 
 zenith_west <-SQM_west%>%
   select(STANDARD.NAME, POINTS, SQM.ZENITH)%>% #select the columns you want 
