@@ -253,7 +253,7 @@ ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg, c
 axis.title.y = element_text(margin = margin(r = 10), color = "black"))
 
 
-### Cleveland Dot Plot for Zenith
+### Cleveland Dot Plot for Zenith Averages
 
 ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg)) + 
   geom_segment(
@@ -338,9 +338,14 @@ write.csv(seaward_brightest,"Brightest Seaward Skies_Local Names.csv")
 seaward_boxplot<-stx_seaward_analysis%>%
   select(LOCATION, REGION, seaward_avg, seaward_median, seaward_min, seaward_max, seaward_range)
 
-### Seaward Plot
+### Cleveland Dot Plot Seaward Averages
 
 ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg, color = LOCATION)) + 
+  geom_segment(
+    aes(xend = reorder(LOCATION, -seaward_avg), yend = 0), 
+    color = "grey75",   # Muted grey so it doesn't distract from the dots
+    linewidth = 0.6     # Clean, thin line weight
+  ) +
   geom_point(color = "black", size = 3.5) +
   theme_bw() +
   ylim(0, 25) + 
@@ -352,7 +357,6 @@ ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg
   theme(
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = "black"),
     axis.title.y = element_text(margin = margin(r = 10), color = "black"))
-
 
 
 #### Combine Landward, Seaward and Zenith Averages to make a Scatter Plot.
@@ -371,6 +375,7 @@ avg_zenith <-stx_zenith_analysis%>%
 combined_averages <- avg_landward %>%
   left_join(avg_seaward, by = c("LOCATION", "REGION")) %>%
   left_join(avg_zenith, by = c("LOCATION", "REGION"))
+
 
 
 ### Combine averages for landward, seaward and zenith in a plot
