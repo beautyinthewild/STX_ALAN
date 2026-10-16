@@ -345,7 +345,7 @@ ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg
   theme_bw() +
   ylim(0, 25) + 
   labs(
-    x = "Nesting Beaches",
+    x = "Sea Turtle Habitats",
     y = "Seaward Brightness (mag/arcsecs)"
   ) +
   guides(fill = FALSE)+
@@ -355,28 +355,55 @@ ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg
 
 
 
-
-
-
-
-
-
-# Combine landward, seaward and zenith averages to make a plot.
+#### Combine Landward, Seaward and Zenith Averages to make a plot.
 
 avg_landward <-stx_lw_analysis%>%
-  select(STANDARD.NAME,REGION,lw_avg)
+  select(LOCATION,REGION,lw_avg)
 
 avg_seaward <-stx_seaward_analysis%>%
-  select(STANDARD.NAME,REGION, seaward_avg)
+  select(LOCATION,REGION, seaward_avg)
 
 avg_zenith <-stx_zenith_analysis%>%
-  select(STANDARD.NAME,REGION, zenith_avg)
+  select(LOCATION,REGION, zenith_avg)
 
-# Merge the data sets together 
+# Merge the average data sets together 
 
 combined_averages <- avg_landward %>%
-  left_join(avg_seaward, by = c("STANDARD.NAME", "REGION")) %>%
-  left_join(avg_zenith, by = c("STANDARD.NAME", "REGION"))
+  left_join(avg_seaward, by = c("LOCATION", "REGION")) %>%
+  left_join(avg_zenith, by = c("LOCATION", "REGION"))
+
+
+### Combine averages for landward, seaward and zenith in a plot
+### Reshape the combined data into long format to do this
+
+combined_long <- combined_averages %>%
+  pivot_longer(
+    cols = c(lw_avg, seaward_avg, zenith_avg), 
+    names_to = "Measurement_Type", 
+    values_to = "Brightness_Value")
+
+### Vertical Plot
+
+ggplot(combined_long, aes(x = reorder(LOCATION, -Brightness_Value), y = Brightness_Value, color = Measurement_Type)) + 
+  geom_point(size = 4, alpha = 0.8) +
+  theme_bw() +
+  ylim(10, 25) + 
+  labs(
+    x = "Sea Turtle Habitats",
+    y = "Nighttime Sky Brightness (mag/arcsec²)",
+    color = "Measurement Direction"
+  ) +
+  scale_color_manual(
+    values = c("lw_avg" = "#E69F00", "seaward_avg" = "#56B4E9", "zenith_avg" = "#000000"),
+    labels = c("Landward Avg", "Seaward Avg", "Zenith Avg")
+  ) + 
+  coord_flip() + # <-- This flips the X and Y axes
+  theme(
+    axis.text.y = element_text(color = "black", size = 8),
+    axis.title.x = element_text(margin = margin(t = 13)), 
+    legend.position = "right")
+
+
 
 sqm_averages_west <-combined_averages%>%
   filter(REGION == "West End")
