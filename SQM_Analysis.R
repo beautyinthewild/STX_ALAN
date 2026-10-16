@@ -39,31 +39,46 @@ colnames(SQM_east)
 # convert it.
 
 lw_west <-SQM_west%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>% #select columns you want
+  mutate(REGION="West End") # add a new variable/column
+
+lw_west_2 <-SQM_west%>%
   select(STANDARD.NAME, POINTS, SQM..LW.)%>% #select columns you want
   mutate(REGION="West End") # add a new variable/column
 
 lw_north <-SQM_north%>%
-  select(STANDARD.NAME, POINTS, SQM..LW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
   mutate(REGION="North Shore")
 
 lw_south <-SQM_south%>%
-  select(STANDARD.NAME, POINTS, SQM..LW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
   mutate(REGION="South Shore")
 
 lw_eemp <-SQM_eemp%>%
-  select(STANDARD.NAME, POINTS, SQM..LW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
   mutate(REGION="East End")
 
-# Combine the data sets, stack them together
+# Combine the landward values from each data set, stack them together
 
 lw_stx <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
 
+lw_stx_2 <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
+
+lw_stx<-lw_stx%>%
+  filter(LOCATION!="")%>% #removes blanks under location, good practice!
+  mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
+
 # Clean out the NA rows
 lw_stx_clean <- lw_stx %>% 
-  drop_na(STANDARD.NAME, POINTS, SQM..LW.)
+  drop_na(LOCATION, POINTS, SQM..LW.)
+
+lw_stx_clean_2 <- lw_stx %>% 
+  drop_na(LOCATION, POINTS, SQM..LW.)
 
 # Calculate landward averages for each nesting beach. Take the average of all 
 # the points for each survey site.
+
+# Standard Beach Names in St. Croix
 
 stx_lw_analysis <-lw_stx%>%
   group_by(STANDARD.NAME, REGION)%>%
@@ -76,17 +91,42 @@ stx_lw_analysis <-lw_stx%>%
             lw_se=std.error(SQM..LW.))%>%
   ungroup()
 
-# Top 10 Darkest and Brightest Nesting Beaches 
+# Local Beach Names in St. Croix
+
+local_lw_analysis <-lw_stx%>%
+  group_by(LOCATION, REGION)%>%
+  summarise(points=max(POINTS),
+            lw_avg=mean(SQM..LW.,na.rm=T),
+            lw_median=median(SQM..LW.,na.rm=T),
+            lw_min=min(SQM..LW.),
+            lw_max=max(SQM..LW.),
+            lw_range=lw_max-lw_min, 
+            lw_se=std.error(SQM..LW.))%>%
+  ungroup()
+
+# Top 10 Darkest Beaches Using Standard Beach Names
 
 lw_darkest <-stx_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
 
-write.csv(lw_darkest,"Top 10 Darkest Beaches.csv")
+write.csv(lw_darkest,"Top 10 Darkest Beaches Standard Names.csv")
 
 lw_brightest <-stx_lw_analysis%>%
   slice_min(order_by=lw_avg, n=10)
 
-write.csv(lw_brightest,"Top 10 Brightest Beaches.csv")
+write.csv(lw_brightest,"Top 10 Brightest Beaches Standard Names.csv")
+
+# Top 10 Darkest Beaches Using Local Beach Names
+
+local_lw_darkest <-local_lw_analysis%>%
+  slice_max(order_by=lw_avg, n = 10) 
+
+write.csv(local_lw_darkest,"Top 10 Darkest Beaches Local Names.csv")
+
+# Top 10 Brightest Beaches Using Local Beach Names
+
+local_lw_brightest <-local_lw_analysis%>%
+  slice_min(order_by=lw_avg, n=10)
 
 
 # Landward values for the west end.
