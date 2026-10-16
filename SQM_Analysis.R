@@ -616,7 +616,7 @@ ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, c
     x = "East End Marine Park",
     y = "Brightness (mag/arcsec²)",
     color = "Brightness",
-    shape = "Measurement Type") +
+    shape = "Measurement Direction") +
   # Viridis continuous color scale
   scale_color_viridis_c(name = "Sky Brightness Units", option = "viridis", direction= -1) +
   scale_shape_manual(
@@ -634,25 +634,25 @@ ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, c
 
 
 
+### Rearrange regions with code: West, North, South, East 
+
+# Standard Beach Names
+
+stx_lw_analysis$REGION <- factor(stx_lw_analysis$REGION, 
+                                 levels = c("West End", "North Shore", "South Shore", "East End"))
 
 
+# Local Beach Names
+
+local_lw_analysis$REGION <- factor(local_lw_analysis$REGION, 
+                                   levels = c("West End", "North Shore", "South Shore", "East End"))
 
 
+# Boxplot for each sector displayed
 
-
-
-
-
-
-
-
-
-
-# Boxplot for each sector using landward values
-
-ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
+ggplot(local_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   geom_boxplot()+
-  geom_jitter(width=.1, alpha=.5)+
+  geom_jitter(shape = 21, fill="white", stroke = 1.5, width = .1, size = 1.8)+
   theme_bw() +
   ylim(10, 25) + 
   labs(
@@ -660,35 +660,8 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
     y = "Brightness (mag/arcsecs)"
   ) +
   theme(
-    axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 1, face="bold")
-  )+
-  guides(color="none")
-
-
-
-# Rearrange regions with code: West End, North Shore, South Shore, East End
-
-stx_lw_analysis$REGION <- factor(stx_lw_analysis$REGION, 
-                                 levels = c("West End", "North Shore", "South Shore", "East End"))
-
-
-# Boxplot for each sector displayed
-
-ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
-  geom_boxplot()+
-  geom_jitter(shape = 21, fill="white", stroke = 1.5, width = .1, size = 1.8)+
-  theme_bw() +
-  ylim(10, 25) + 
-  labs(
-    x = "",
-    y = "Night Sky Brightness (mag/arcsecs)"
-  ) +
-  theme(
     text = element_text(family = "Serif", size = 13, color="black"),
     axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 0.5, color="black"),
     axis.text.y = element_text(color = "black"),
     axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)))+
   guides(color="none")
-
-
-
