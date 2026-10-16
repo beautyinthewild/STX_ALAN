@@ -355,7 +355,7 @@ ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg
 
 
 
-#### Combine Landward, Seaward and Zenith Averages to make a plot.
+#### Combine Landward, Seaward and Zenith Averages to make a Scatter Plot.
 
 avg_landward <-stx_lw_analysis%>%
   select(LOCATION,REGION,lw_avg)
@@ -404,13 +404,14 @@ ggplot(combined_long, aes(x = reorder(LOCATION, -Brightness_Value), y = Brightne
     legend.position = "right")
 
 
+### Combination for West End
 
 sqm_averages_west <-combined_averages%>%
   filter(REGION == "West End")
 
-# Make a simple scatter plot for the West End
+# Simple scatter plot for the West End
 
-ggplot(sqm_averages_west, aes(x = STANDARD.NAME, y = lw_avg, color = LOCATION)) +
+ggplot(sqm_averages_west, aes(x = LOCATION, y = lw_avg, color = LOCATION)) +
   geom_point(size = 4, color="black") +
   scale_color_viridis_d(option = "viridis", direction=-1) + # clean Viridis color scheme
   theme_bw() +
@@ -422,8 +423,7 @@ ggplot(sqm_averages_west, aes(x = STANDARD.NAME, y = lw_avg, color = LOCATION)) 
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"))
 
 
-# Scatter plot with lw, sw and zenith points for Frederiksted's beaches
-
+# Combined directions for Frederiksted's Beaches
 
 plot_data_west <- sqm_averages_west %>%
   pivot_longer(
@@ -432,41 +432,42 @@ plot_data_west <- sqm_averages_west %>%
     values_to = "Brightness")
 
 
-ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Measurement_Type)) +
-  geom_point(size = 3, alpha = 0.8) +
-  scale_color_manual(
+  ggplot(plot_data_west, aes(x = reorder(LOCATION, -Brightness), y = Brightness, fill = Measurement_Type)) + 
+  geom_point(shape = 21, color = "black", size = 5, alpha = 0.8, stroke = 1.2) + 
+  scale_fill_manual(
     values = c(
-      "lw_avg"      = "#FF5B00",  # orange for landward
-      "seaward_avg" = "#0055FF",  # blue for seaward
-      "zenith_avg"  = "#5E35B1"   # purple for zenith
+      "lw_avg"      = "#FFEA46",  # orange for landward
+      "seaward_avg" = "#D55E00",  # blue for seaward
+      "zenith_avg"  = "#00204D"   # purple for zenith
     ),
-    labels = c("Landward Horizon", "Seaward Horizon", "Zenith Horizon")
+    labels = c("Landward Horizon", "Seaward Horizon", "Zenith")
   ) +
   labs(
-    x = "West End",
+    x = "West End Habitats",
     y = "Brightness (mag/arcsec²)",
-    color = NULL  # Removes the legend title box header for a cleaner look
+    fill = NULL  # Removes the legend title box header for a cleaner look
   ) +
   ylim(10, 25) +
   theme_classic(base_size = 12) +
   theme(
     legend.position = "top",
     legend.direction = "horizontal",
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(margin = margin(r = 12)))
 
 
-# Brightness Scale for West-End Beaches (includes lw, sw and zenith)
+# Brightness Scale for West-End Beaches (Combination LW, SW and Zenith)
 
 ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, shape=Measurement_Type)) +
-  geom_point(size = 3.5, alpha = 0.9) +
+  geom_point(size = 5, alpha = 0.9) +
   scale_color_viridis_c(name= "Brightness Scale", option = "viridis", direction = -1) + 
   theme_bw() +
   ylim(10, 25) + 
   labs(
-    x = "West-end Beaches",
+    x = "West End Beaches",
     y = "Brightness (mag/arcsecs)",
     color = "Brightness",
-    shape = "Horizon Measurements",
+    shape = "Measurement Direction",
   ) +
   theme(
     panel.background = element_rect(fill = "white", color = NA),
@@ -515,33 +516,6 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
     axis.text.y = element_text(color = "black"),
     axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)))+
   guides(color="none")
-
-
-
-
-# Boxplot for landward, seaward, and zenith averages across sectors
-
-
-
-# 2. Plot with facet_wrap
-ggplot(lw_boxplot_long, aes(x = STANDARD.NAME, y = Brightness_Value)) +
-  geom_point(color = "black", size = 2) +
-  facet_wrap(~ Average_Type, scales = "free_y", ncol = 1) + # Splits into 3 stacked panels
-  theme_bw() +
-  ylim(10, 25) +
-  labs(
-    x = "West End Beaches",
-    y = "Sky Quality Brightness (mag/arcsec²)",
-    title = "Comparison of Sky Brightness Metrics"
-  ) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-
-
-
-
-
-
 
 
 
