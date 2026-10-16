@@ -464,7 +464,7 @@ plot_data_west <- sqm_averages_west %>%
 
 ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, shape=Measurement_Type)) +
   geom_point(size = 5, alpha = 0.9) +
-  scale_color_viridis_c(name= "Brightness Scale", option = "viridis", direction = -1) + 
+  scale_color_viridis_c(name= "Sky Brightness Units", option = "viridis", direction = -1) + 
   theme_bw() +
   ylim(10, 25) + 
   labs(
@@ -475,6 +475,8 @@ ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, sha
   ) +
   theme(
     panel.background = element_rect(fill = "white", color = NA),
+    legend.title = element_text(hjust = 0.5),
+    axis.title.y = element_text(margin = margin(r = 10)),
     axis.text.y = element_text(color = "black"),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"))
 
@@ -530,7 +532,7 @@ ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     x = "North Shore Beaches",
     y = "Brightness (mag/arcsec²)",
     color = "Brightness",
-    shape = "Measurement Type") +
+    shape = "Measurement Direction") +
   # Viridis continuous color scale
   scale_color_viridis_c(name = "Sky Brightness Units", option = "viridis", direction= -1) +
   scale_shape_manual(
@@ -572,7 +574,7 @@ ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     x = "South Shore Beaches",
     y = "Brightness (mag/arcsec²)",
     color = "Brightness",
-    shape = "Measurement Type") +
+    shape = "Measurement Direction") +
   # Viridis continuous color scale
   scale_color_viridis_c(name = "Sky Brightness Units", option = "viridis", direction= -1) +
   scale_shape_manual(
