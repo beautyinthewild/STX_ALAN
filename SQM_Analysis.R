@@ -20,6 +20,7 @@ dir.create("Plots") # create this folder to drop your plot images
 # Always visualize your data! Number one coding rule! Examples shown below.
 
 view(SQM_west)
+glimpse(SQM_west)
 head(SQM_west)
 tail(SQM_west)
 
@@ -135,7 +136,7 @@ write.csv(local_lw_brightest,"LW Brightest Beaches_Local Names.csv")
 
 # Landward values for the west end.
 
-lw_boxplot<-stx_lw_analysis%>%
+lw_boxplot<-local_lw_analysis%>%
   select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
   filter(REGION == "West End")
 
@@ -170,11 +171,6 @@ ggplot(lw_boxplot, aes(x =LOCATION, y = lw_avg, color = LOCATION)) +
   theme( 
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     axis.title.y = element_text(margin = margin(r = 10)))
-
-
-# Merge the first two data sets by LOCATION, then merge the third***
-sqm_west_combo <-avg_landward%>%
-  left_join(avg_seaward%>%select())
 
 
 ### Data analysis for Zenith Skies 
@@ -257,10 +253,10 @@ axis.title.y = element_text(margin = margin(r = 10), color = "black"))
 ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg)) + 
   geom_segment(
     aes(xend = reorder(LOCATION, -zenith_avg), yend = 0), 
-    color = "grey75",   # Muted grey so it doesn't distract from the dots
-    linewidth = 0.6     # Clean, thin line weight
+    color = "grey75",   
+    linewidth = 0.6     # thin line weight
   ) +
-    geom_point(color = "black", size = 3.5) + #data points
+    geom_point(color = "black", size = 3.5) + # data points
   theme_bw() +
   ylim(0, 25) + 
   labs(
