@@ -510,7 +510,6 @@ theme(
     legend.position = "right")
 
 
-
 ### Combination for South Shore
 
 sqm_averages_south <-combined_averages%>%
@@ -599,7 +598,7 @@ stx_lw_analysis$REGION <- factor(stx_lw_analysis$REGION,
                                  levels = c("West End", "North Shore", "South Shore", "East End"))
 
 
-# Boxplot for each sector displayed
+# Boxplot for each region displayed
 
 ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   geom_boxplot()+
@@ -618,4 +617,3 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   guides(color="none")
 
 
-###

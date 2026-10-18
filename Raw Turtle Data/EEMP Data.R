@@ -6,6 +6,7 @@
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
+library(viridis)
 
 
 setwd("C:\\Users\\romin\\Desktop\\My Thesis\\SQM CSVs\\Raw Turtle Data")
@@ -26,7 +27,8 @@ eemp_data_clean <- eemp_data %>%
 ## Formula: nest density = total number of nests or nnes / beach length (km)
 
 eemp_data_clean_2 <- eemp_data_clean%>%
-  select(-Probable.Lays, -Dry.Runs, -Tracks)%>% #remove these columns to clean up
+  select(-Probable.Lays, -Dry.Runs, -Tracks)%>% #remove columns
+  filter(Year != 2024) %>%
   mutate(
     Nests           = as.numeric(Nests),
     Total_NNEs      = as.numeric(Total_NNEs),
@@ -77,10 +79,41 @@ ggplot(eemp_data_clean_2, aes(x = Nest_Density, y = NNEs_Density, color = Specie
        x = "Nest Density (nests/km)",
        y = "NNEs Density (activities/km)")
 
+# Heat Map
+### Original Heat Map
+
 ggplot(eemp_data_clean_2, aes(x = Year, y = East.End.Marine.Park, fill = Nest_Density)) +
   geom_tile(na.rm = TRUE) +
+  scale_fill_viridis_c()+
   facet_wrap(~ Species) +
   labs(title = "Nest Density Heatmap",
        fill = "Density")
+
+### Cleaner Heat Map Plot
+
+ggplot(eemp_data_clean_2, aes(x = factor(Year), y = East.End.Marine.Park, fill = Nest_Density)) +
+  geom_tile(na.rm = TRUE) +
+  scale_fill_viridis_c(na.value = "white") +
+  facet_wrap(~ Species) + # CM and EI
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    panel.border = element_rect(color = "gray90", fill = NA, size = 0.5),
+    strip.background = element_rect(fill = "gray95", color = "gray90"),
+    axis.text.y = element_text(color="black"),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, color="black", hjust = 1)) +
+  labs(title = NULL, # this removes the captain
+       x = "Year", # this removes the x axis label
+       fill = "Nest Density")
+
+
+
+
+
+
+
+
+
+
 
 
