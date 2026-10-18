@@ -616,3 +616,6 @@ ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
     axis.text.y = element_text(color = "black"),
     axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)))+
   guides(color="none")
+
+
+###
