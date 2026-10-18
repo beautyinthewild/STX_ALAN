@@ -62,38 +62,15 @@ lw_eemp <-SQM_eemp%>%
 
 lw_stx <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
 
-lw_stx_2 <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
-
-lw_stx<-lw_stx%>%
-  filter(LOCATION!="")%>% #removes blanks under location, good practice!
-  mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
-
-# Clean out the NA rows
-lw_stx_clean <- lw_stx %>% 
-  drop_na(LOCATION, POINTS, SQM..LW.)
-
-lw_stx_clean_2 <- lw_stx %>% 
-  drop_na(LOCATION, POINTS, SQM..LW.)
+lw_stx <-lw_stx%>%
+  filter(LOCATION!="")#removes blanks under location
 
 # Calculate landward averages for each nesting beach. Take the average of all 
 # the points for each survey site.
 
-# Standard Beach Names in St. Croix
+# LW Analysis St. Croix
 
 stx_lw_analysis <-lw_stx%>%
-  group_by(STANDARD.NAME, REGION)%>%
-  summarise(points=max(POINTS),
-            lw_avg=mean(SQM..LW.,na.rm=T),
-            lw_median=median(SQM..LW.,na.rm=T),
-            lw_min=min(SQM..LW.),
-            lw_max=max(SQM..LW.),
-            lw_range=lw_max-lw_min, 
-            lw_se=std.error(SQM..LW.))%>%
-  ungroup()
-
-# Local Beach Names in St. Croix
-
-local_lw_analysis <-lw_stx%>%
   group_by(LOCATION, REGION)%>%
   summarise(points=max(POINTS),
             lw_avg=mean(SQM..LW.,na.rm=T),
@@ -101,42 +78,29 @@ local_lw_analysis <-lw_stx%>%
             lw_min=min(SQM..LW.),
             lw_max=max(SQM..LW.),
             lw_range=lw_max-lw_min, 
-            lw_se=std.error(SQM..LW.))%>%
+            lw_se=std.error(SQM..LW.),
+            STANDARD.NAME=first(STANDARD.NAME))%>% #keeps the names the same
   ungroup()
 
 
-### Top 10 Darkest Beaches - Standard Beach Names
+### Top 10 Darkest Beaches - Local Beach Names
 
 lw_darkest <-stx_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
 
 write.csv(lw_darkest,"LW Darkest Beaches_Standard Names.csv")
 
-### Top 10 Brightest Beaches - Standard Beach Names
+### Top 10 Brightest Beaches - Local Beach Names
 
 lw_brightest <-stx_lw_analysis%>%
   slice_min(order_by=lw_avg, n=10)
 
 write.csv(lw_brightest,"LW Brightest Beaches_Standard Names.csv")
 
-#### Top 10 Darkest Beaches - Local Beach Names
-
-local_lw_darkest <-local_lw_analysis%>%
-  slice_max(order_by=lw_avg, n = 10) 
-
-write.csv(local_lw_darkest,"LW Darkest Beaches_Local Names.csv")
-
-### Top 10 Brightest Beaches - Local Beach Names
-
-local_lw_brightest <-local_lw_analysis%>%
-  slice_min(order_by=lw_avg, n=10)
-
-write.csv(local_lw_brightest,"LW Brightest Beaches_Local Names.csv")
-
 
 # Landward values for the west end.
 
-lw_boxplot<-local_lw_analysis%>%
+lw_boxplot<-stx_lw_analysis%>%
   select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
   filter(REGION == "West End")
 
@@ -176,19 +140,19 @@ ggplot(lw_boxplot, aes(x =LOCATION, y = lw_avg, color = LOCATION)) +
 ### Data analysis for Zenith Skies 
 
 zenith_west <-SQM_west%>%
-  select(LOCATION, POINTS, SQM.ZENITH)%>% #select the columns you want 
+  select(STANDARD.NAME, LOCATION, POINTS, SQM.ZENITH)%>% #select the columns you want 
   mutate(REGION="West End")
 
 zenith_north <-SQM_north%>%
-  select(LOCATION, POINTS, SQM.ZENITH)%>% 
+  select(STANDARD.NAME, LOCATION, POINTS, SQM.ZENITH)%>% 
   mutate(REGION="North Shore")
 
 zenith_south <-SQM_south%>%
-  select(LOCATION, POINTS, SQM.ZENITH)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM.ZENITH)%>%
   mutate(REGION="South Shore")
 
 zenith_eemp <-SQM_eemp%>%
-  select(LOCATION, POINTS, SQM.ZENITH)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM.ZENITH)%>%
   mutate(REGION="East End")
 
 # Combine the data sets/ stack them together
@@ -201,14 +165,15 @@ zenith_stx_clean<-zenith_stx%>%
 # Calculate zenith averages for each nesting beach. Take the average of all 
 # the points for each site.
 
-stx_zenith_analysis <-zenith_stx%>%
+stx_zenith_analysis <-zenith_stx_clean%>%
   group_by(LOCATION, REGION)%>% #this will create one line per beach
   summarise(points=max(POINTS),
             zenith_avg=mean(SQM.ZENITH,na.rm=T),
             zenith_median=median(SQM.ZENITH,na.rm=T),
             zenith_min=min(SQM.ZENITH),
             zenith_max=max(SQM.ZENITH),
-            zenith_range=zenith_max-zenith_min)%>%
+            zenith_range=zenith_max-zenith_min,
+            STANDARD.NAME=first(STANDARD.NAME))%>%
   ungroup()
 
 
@@ -276,19 +241,19 @@ ggplot(zenith_boxplot, aes(x = reorder(LOCATION, -zenith_avg), y = zenith_avg)) 
 ### Data analysis for Seaward Horizon 
 
 seaward_west <-SQM_west%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="West End")
 
 seaward_north <-SQM_north%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="North Shore")
 
 seaward_south <-SQM_south%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="South Shore")
 
 seaward_eemp <-SQM_eemp%>%
-  select(LOCATION, POINTS, SQM..SW.)%>%
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..SW.)%>%
   mutate(REGION="East End")
 
 # Combine the data sets/ stack them together
@@ -310,7 +275,8 @@ stx_seaward_analysis <-seaward_stx_clean%>%
             seaward_median=median(SQM..SW.,na.rm=T),
             seaward_min=min(SQM..SW.),
             seaward_max=max(SQM..SW.),
-            seaward_range=seaward_max-seaward_min)%>%
+            seaward_range=seaward_max-seaward_min,
+  STANDARD.NAME=first(STANDARD.NAME))%>%
   ungroup()
 
 
@@ -367,9 +333,9 @@ avg_zenith <-stx_zenith_analysis%>%
 
 # Merge the average data sets together 
 
-combined_averages <- avg_landward %>%
+combined_averages <- avg_zenith %>%
   left_join(avg_seaward, by = c("LOCATION", "REGION")) %>%
-  left_join(avg_zenith, by = c("LOCATION", "REGION"))
+  left_join(avg_landward, by = c("LOCATION", "REGION"))
 
 
 ### Combine averages for landward, seaward and zenith in a plot
@@ -515,6 +481,7 @@ ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     panel.background = element_rect(fill = "white", color = NA),
     axis.text.y = element_text(color = "black", size = 9),
     axis.title.x = element_text(margin = margin(t = 15)),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"),
     legend.position = "right"
   )
 
@@ -587,7 +554,6 @@ ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
 
 ###Brightness Scale for East End Marine Park
 
-
 ### Combination for EEMP
 
 sqm_averages_eemp <-combined_averages%>%
@@ -629,21 +595,13 @@ ggplot(plot_data_eemp, aes(x = reorder(LOCATION, -Brightness), y = Brightness, c
 
 ### Rearrange regions with code: West, North, South, East 
 
-# Standard Beach Names
-
 stx_lw_analysis$REGION <- factor(stx_lw_analysis$REGION, 
                                  levels = c("West End", "North Shore", "South Shore", "East End"))
 
 
-# Local Beach Names
-
-local_lw_analysis$REGION <- factor(local_lw_analysis$REGION, 
-                                   levels = c("West End", "North Shore", "South Shore", "East End"))
-
-
 # Boxplot for each sector displayed
 
-ggplot(local_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
+ggplot(stx_lw_analysis, aes(x=REGION, y=lw_avg, color=REGION))+
   geom_boxplot()+
   geom_jitter(shape = 21, fill="white", stroke = 1.5, width = .1, size = 1.8)+
   theme_bw() +
