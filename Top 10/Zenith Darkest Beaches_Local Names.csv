@@ -1,11 +1,11 @@
-"","LOCATION","REGION","points","zenith_avg","zenith_median","zenith_min","zenith_max","zenith_range"
-"1","Issac Bay","East End",14,21.4,21.39,21.3,21.49,0.189999999999998
-"2","Monks Bath ","West End",13,21.2423076923077,21.11,20.9,22.58,1.68
-"3","Hams Bay","West End",4,21.185,21.19,21.14,21.22,0.0799999999999983
-"4","Brown Bay","East End",6,21.075,21.035,20.91,21.4,0.489999999999998
-"5","Teague Bay (west)","East End",3,21.06,21.05,21.01,21.12,0.109999999999999
-"6","Teague Bay (east)","East End",14,20.86,21.01,19.67,21.61,1.94
-"7","Powell Bay","North Shore",3,20.8533333333333,20.9,20.7,20.96,0.260000000000002
-"8","Turner Hole (east)","East End",15,20.834,20.88,20.65,20.92,0.270000000000003
-"9","Smuggler's Cove","East End",5,20.804,20.74,20.04,21.8,1.76
-"10","Spratt Hall","West End",16,20.7966666666667,20.73,20.26,21.64,1.38
+"","LOCATION","REGION","points","zenith_avg","zenith_median","zenith_min","zenith_max","zenith_range","STANDARD.NAME"
+"1","Issac Bay","East End",14,21.4,21.39,21.3,21.49,0.189999999999998,"Issac Bay"
+"2","Monks Bath ","West End",13,21.2423076923077,21.11,20.9,22.58,1.68,"Butler Bay"
+"3","Hams Bay","West End",4,21.185,21.19,21.14,21.22,0.0799999999999983,"Ham's Bay"
+"4","Brown Bay","East End",6,21.075,21.035,20.91,21.4,0.489999999999998,"Brown Bay"
+"5","Teague Bay (west)","East End",3,21.06,21.05,21.01,21.12,0.109999999999999,"Teague Bay"
+"6","Teague Bay (east)","East End",14,20.86,21.01,19.67,21.61,1.94,"Teague Bay"
+"7","Powell Bay","North Shore",3,20.8533333333333,20.9,20.7,20.96,0.260000000000002,"Powell Bay"
+"8","Turner Hole (east)","East End",15,20.834,20.88,20.65,20.92,0.270000000000003,"Turner Hole"
+"9","Smuggler's Cove","East End",5,20.804,20.74,20.04,21.8,1.76,"Smuggler's Cove"
+"10","Spratt Hall","West End",16,20.7966666666667,20.73,20.26,21.64,1.38,"Spratt Hall"
