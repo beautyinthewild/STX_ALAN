@@ -16,8 +16,7 @@ eemp_data <-read.csv("EEMP Turtle Data.csv")
 
 beach_density <- eemp_data %>%
   filter(Year >= 2019 & Year <= 2023) %>%
-  filter(Species %in% c("CM", "EI")) %>%  
-  #use %in% so R can filter through multiple rows better instead of ==
+  filter(Species %in% c("CM", "EI"))%>% #use %in% to filter multiple rows
   mutate(
     Nests = as.numeric(Nests),
     NNEs = as.numeric(NNEs),
@@ -26,7 +25,7 @@ beach_density <- eemp_data %>%
    summarise(
     Avg_Nests_Across_Years = mean(Nests, na.rm = TRUE),
     Avg_NNEs_Across_Years  = mean(NNEs, na.rm = TRUE), 
-    .groups = "drop") %>%
+    .groups = "drop")%>%
   mutate(
     Density_of_Avg_Nests = Avg_Nests_Across_Years / Beach.Length.km,
     Density_of_Avg_NNEs  = Avg_NNEs_Across_Years / Beach.Length.km)
