@@ -8,10 +8,13 @@ library(dplyr)
 library(ggplot2)
 library(viridis)
 
+# This file is saved in a sub folder
+# Enter this code in the console: 
+# setwd("C:\\Users\\romin\\Desktop\\My Thesis\\SQM CSVs")
 
-setwd("C:\\Users\\romin\\Desktop\\My Thesis\\SQM CSVs\\Raw Turtle Data")
+eemp_data <-read.csv("Raw Turtle Data/EEMP Turtle Data.csv")
 
-eemp_data <-read.csv("EEMP Turtle Data.csv")
+getwd()
 
 eemp_data_clean <- eemp_data %>%
   filter(Species %in% c("CM", "EI")) %>% #remove DC (leatherback)
@@ -27,7 +30,6 @@ eemp_data_clean <- eemp_data %>%
 ## Formula: nest density = total number of nests or nnes / beach length (km)
 
 eemp_data_clean_2 <- eemp_data_clean%>%
-  select(-Probable.Lays, -Dry.Runs, -Tracks)%>% #remove columns
   filter(Year != 2024) %>%
   mutate(
     Nests           = as.numeric(Nests),
@@ -35,51 +37,84 @@ eemp_data_clean_2 <- eemp_data_clean%>%
     Beach.Length.km = as.numeric(Beach.Length.km)) %>%
   mutate(
     Nest_Density = Nests / Beach.Length.km, #apply formula
-    NNEs_Density = Total_NNEs / Beach.Length.km) #apply formula
+    NNEs_Density = Total_NNEs / Beach.Length.km,
+    pl_density= Probable.Lays / Beach.Length.km,
+    dry_density= Dry.Runs / Beach.Length.km,
+    tracks_density= Tracks / Beach.Length.km)
 
 
-eemp_plot_clean <-eemp_data_clean_2 %>%
-  select(-Nests, -Beach.Length.km, -Total_NNEs) # keep nest density and nnes density
+eemp_year <-eemp_data_clean_2%>%
+  group_by(East.End.Marine.Park, Species)%>%
+  summarise(
+    all_nnes=mean(NNEs_Density,na.rm=T), allnests=mean(Nest_Density, na.rm=T), Total_PLs=mean(pl_density,na.rm=T), Total_Dry_Runs=mean(dry_density,na.rm=T), Total_Tracks=mean(tracks_density,na.rm=T))
 
 
-# Faceted line plot
+### Test this out
+### Reshape the data to long format
+plot_data <- eemp_year %>%
+  pivot_longer(
+    cols = c(Total_PLs, Total_Dry_Runs, Total_Tracks), 
+    names_to = "Activity_Type", 
+    values_to = "Count") %>%
+  mutate(Combined_Group = paste(Species, "-", Activity_Type))
 
-ggplot(eemp_data_clean_2, aes(x = Year, y = Nest_Density, color = Species)) +
-  geom_line(na.rm = TRUE) +
-  geom_point(na.rm = TRUE) +
-  facet_wrap(~ East.End.Marine.Park) +
-  labs(title = "Nest Density Across Years by Species and Location",
-       y = "Nest Density (nests/km)")
+#Line Plot with multiple colors
+
+ggplot(plot_data, aes(x = East.End.Marine.Park, y = Count, 
+                      color = Combined_Group, 
+                      group = Combined_Group)) +
+  geom_line(size = 1) +
+  geom_point(size = 2) +
+  labs(
+    title = NULL,
+    x = "East End Marine Park",
+    y = "Count",
+    color = "Species & Activity Type"
+  ) +
+  theme_minimal() +
+  # a high-contrast color palette suitable for 6+ lines
+  scale_color_brewer(palette = "Dark2") + 
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"),
+    axis.title.y = element_text(margin = margin(r = 15)),
+    axis.text.y = element_text(color="black"),
+    legend.position = "right")
 
 
-# Bar plot for each species
-ggplot(eemp_data_clean_2, aes(x = East.End.Marine.Park,
-                                   y = Nest_Density,
-                                   fill = Species)) +
-  geom_col(position = "dodge") +
-  labs(title = "Mean Nest Density (2019–2023)",
-       y = "Mean Nest Density (nests/km)") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-  
+# 1. Reshape the data to isolate Total_PLs and all_nests into a long format
+plot_data_nests_pl <- eemp_year %>%
+  pivot_longer(
+    cols = c(allnests, Total_PLs), 
+    names_to = "Activity_Type", 
+    values_to = "Count"
+  ) %>%
+  # Create a combined label for clear legend coloring
+  mutate(Combined_Group = paste(Species, "-", Activity_Type))
 
-eemp_plot_test <- eemp_data_clean_2 %>%
-  select(East.End.Marine.Park, Year, Species, Nest_Density, NNEs_Density) %>%
-  pivot_longer(cols = c(Nest_Density, NNEs_Density),
-               names_to = "Metric",
-               values_to = "Density")
+# 2. Create the line plot
+ggplot(plot_data_nests_pl, aes(x = East.End.Marine.Park, y = Count, 
+                               color = Combined_Group, 
+                               group = Combined_Group)) +
+  geom_line(size = 1) +
+  geom_point(size = 2) +
+  labs(
+    title = NULL,
+    x = "East End Marine Park",
+    y = "Count",
+    color = "Species & Metric"
+  ) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1") + # High contrast palette for 4 lines
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"),
+    axis.text.y = element_text(color="black"),
+    axis.title.y = element_text(color="black", margin = margin(r = 15)),
+    legend.position = "right"
+  )
 
 
-#Scatter Plot/Facet Wrap
-
-ggplot(eemp_data_clean_2, aes(x = Nest_Density, y = NNEs_Density, color = Species)) +
-  geom_point(na.rm = TRUE) +
-  facet_wrap(~ East.End.Marine.Park) +
-  labs(title = "Nest Density vs NNEs Density",
-       x = "Nest Density (nests/km)",
-       y = "NNEs Density (activities/km)")
-
-# Heat Map
+# Code names changed so the script below won't work.
 ### Original Heat Map
 
 ggplot(eemp_data_clean_2, aes(x = Year, y = East.End.Marine.Park, fill = Nest_Density)) +
