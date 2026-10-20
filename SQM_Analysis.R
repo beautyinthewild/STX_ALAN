@@ -338,6 +338,9 @@ combined_averages <- avg_zenith %>%
   left_join(avg_landward, by = c("LOCATION", "REGION"))
 
 
+write.csv(combined_averages,"Clean Light Data.csv")
+
+
 ### Combine averages for landward, seaward and zenith in a plot
 ### Reshape the combined data into long format to do this
 
