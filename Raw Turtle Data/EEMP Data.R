@@ -14,7 +14,6 @@ library(viridis)
 
 eemp_data <-read.csv("Raw Turtle Data/EEMP Turtle Data.csv")
 
-getwd()
 
 eemp_data_clean <- eemp_data %>%
   filter(Species %in% c("CM", "EI")) %>% #remove DC (leatherback)
@@ -44,7 +43,7 @@ eemp_data_clean_2 <- eemp_data_clean%>%
 
 
 eemp_year <-eemp_data_clean_2%>%
-  group_by(East.End.Marine.Park, Species)%>%
+  group_by(Location, Species)%>%
   summarise(
     all_nnes=mean(NNEs_Density,na.rm=T), allnests=mean(Nest_Density, na.rm=T), Total_PLs=mean(pl_density,na.rm=T), Total_Dry_Runs=mean(dry_density,na.rm=T), Total_Tracks=mean(tracks_density,na.rm=T))
 
@@ -60,7 +59,7 @@ plot_data <- eemp_year %>%
 
 #Line Plot with multiple colors
 
-ggplot(plot_data, aes(x = East.End.Marine.Park, y = Count, 
+ggplot(plot_data, aes(x = Location, y = Count, 
                       color = Combined_Group, 
                       group = Combined_Group)) +
   geom_line(size = 1) +
@@ -82,7 +81,7 @@ ggplot(plot_data, aes(x = East.End.Marine.Park, y = Count,
 
 
 
-# 1. Reshape the data to isolate Total_PLs and all_nests into a long format
+# Reshape the data to isolate Total_PLs and all_nests into a long format
 plot_data_nests_pl <- eemp_year %>%
   pivot_longer(
     cols = c(allnests, Total_PLs), 
@@ -92,41 +91,13 @@ plot_data_nests_pl <- eemp_year %>%
   # Create a combined label for clear legend coloring
   mutate(Combined_Group = paste(Species, "-", Activity_Type))
 
-# 2. Create the line plot
-ggplot(plot_data_nests_pl, aes(x = East.End.Marine.Park, y = Count, 
-                               color = Combined_Group, 
-                               group = Combined_Group)) +
-  geom_line(size = 1) +
-  geom_point(size = 2) +
-  labs(
-    title = NULL,
-    x = "East End Marine Park",
-    y = "Count",
-    color = "Species & Metric"
-  ) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") + # High contrast palette for 4 lines
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"),
-    axis.text.y = element_text(color="black"),
-    axis.title.y = element_text(color="black", margin = margin(r = 15)),
-    legend.position = "right"
-  )
 
+
+### Code for Heat Map Plot
 
 # Code names changed so the script below won't work.
-### Original Heat Map
 
-ggplot(eemp_data_clean_2, aes(x = Year, y = East.End.Marine.Park, fill = Nest_Density)) +
-  geom_tile(na.rm = TRUE) +
-  scale_fill_viridis_c()+
-  facet_wrap(~ Species) +
-  labs(title = "Nest Density Heatmap",
-       fill = "Density")
-
-### Cleaner Heat Map Plot
-
-ggplot(eemp_data_clean_2, aes(x = factor(Year), y = East.End.Marine.Park, fill = Nest_Density)) +
+ggplot(plot_data_nests_pl, aes(x = factor(Year), y = Location, fill = Total_PLs)) +
   geom_tile(na.rm = TRUE) +
   scale_fill_viridis_c(na.value = "white") +
   facet_wrap(~ Species) + # CM and EI
