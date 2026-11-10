@@ -34,6 +34,7 @@ ggplot(property_type, aes(x = as.factor(Year), fill = Property.Type)) +
     y = "Number of Disorientation Reports",
     fill = "Development Type"
   ) +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
   theme_minimal()
 
 
