@@ -40,11 +40,8 @@ colnames(SQM_east)
 
 lw_west <-SQM_west%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>% #select columns you want
-  mutate(REGION="West End") # add a new variable/column
-
-lw_west_2 <-SQM_west%>%
-  select(STANDARD.NAME, POINTS, SQM..LW.)%>% #select columns you want
-  mutate(REGION="West End") # add a new variable/column
+  mutate(REGION="West End")%>% # add a new variable/column
+  mutate(SQM..LW.=as.numeric(SQM..LW.))
 
 lw_north <-SQM_north%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
@@ -56,7 +53,10 @@ lw_south <-SQM_south%>%
 
 lw_eemp <-SQM_eemp%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
-  mutate(REGION="East End")
+  mutate(REGION="East End")%>%
+  mutate(SQM..LW.=as.numeric(SQM..LW.))
+  
+
 
 # Combine the landward values from each data set, stack them together
 
@@ -324,6 +324,8 @@ ggplot(seaward_boxplot, aes(x = reorder(LOCATION, -seaward_avg), y = seaward_avg
 
 avg_landward <-stx_lw_analysis%>%
   select(LOCATION,REGION,lw_avg)
+
+write.csv(avg_landward,"LW Averages Across Beaches.csv")
 
 avg_seaward <-stx_seaward_analysis%>%
   select(LOCATION,REGION, seaward_avg)

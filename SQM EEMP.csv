@@ -65,6 +65,12 @@ YEAR,MONTH,DAY,DATE,ISLAND,LOCATION,STANDARD NAME,LAT_DEGREES,LON_DEGREES,START 
 2026,8,11,8/11/2026,STX,Brown Bay,Brown Bay,17.75995,-64.58113,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,4,Romina and Abigail,20.32,21.44,21.89,21.89,20.93,21.39,
 2026,8,11,8/11/2026,STX,Brown Bay,Brown Bay,17.75966,-64.58077,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,5,Romina and Abigail,21.3,21.32,21.75,21.97,21.14,21.59,
 2026,8,11,8/11/2026,STX,Brown Bay,Brown Bay,17.7594,-64.58039,22:49,0:22,Mostly Clear/Partly Cloudy,20-60%,Waning Cresecent,1.80%,6,Romina and Abigail,23.14,21.01,21.83,23.2,21.4,22.30,
+2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75979,-64.57521,21:45,23:01,Clear,0-20%,New Moon,0.00%,7,Romina and Omari,22.38,21.33,20.47,22.21,21.15,21.60,
+2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75954,-64.57559,21:45,23:01,Clear,0-20%,New Moon,0.00%,8,Romina and Omari,22.17,20.34,21.07,21.35,21.16,21.23,
+2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75937,-64.57604,21:45,23:01,Clear,0-20%,New Moon,0.00%,9,Romina and Omari,22.33,20.15,21.17,21.34,21.15,21.25,
+2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75933,-64.57648,21:45,23:01,Clear,0-20%,New Moon,0.00%,10,Romina and Omari,22.84,20.33,21.11,21.36,21.08,21.41,
+2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.7592,-64.57692,21:45,23:01,Clear,0-20%,New Moon,0.00%,11,Romina and Omari,23.3,20.33,21.22,21.66,21.18,21.63,
+2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75919,-64.57741,21:45,23:01,Clear,0-20%,New Moon,0.00%,12,Romina and Omari,23.65,20.31,21.39,21.66,21.19,21.75,
 2026,9,11,09/11/2026,STX,Coakley Bay,Coakley,17.7619,-64.64741,21:40,23:57,Partly Cloudy,40-60%,New Moon,0%,1,Romina and Omari,22.54,20.13,21,20.26,20.53,20.98,Starting point starts at the west end of the beach (rock wall and surrounding cliff for LW and W readings.
 2026,9,11,09/11/2026,STX,Coakley Bay,Coakley,17.76178,-64.64699,21:40,23:57,Partly Cloudy,40-60%,New Moon,0%,2,Romina and Omari,19.3,20.21,20.79,19.5,20.57,19.95,E: soft white lights from homes
 2026,9,11,09/11/2026,STX,Coakley Bay,Coakley,17.76147,-64.64663,21:40,23:57,Partly Cloudy,40-60%,New Moon,0%,3,Romina and Omari,17.86,19.92,20.94,19.65,20.52,19.59,"LW: outdoor lights visible from houses in the valley, W: Manison and community lights visible"
@@ -121,12 +127,6 @@ YEAR,MONTH,DAY,DATE,ISLAND,LOCATION,STANDARD NAME,LAT_DEGREES,LON_DEGREES,START 
 2026,10,13,10/13/2026,STX,Turner Hole (east),Turner Hole,17.74174,-64.6054,22:34,23:41,Clear,0-20%,Waxing Crescent,8.90%,13,Romina,20.5,20.62,21.4,18.13,20.9,20.16,"Foul smell, windy and muggy weather. "
 2026,10,13,10/13/2026,STX,Turner Hole (east),Turner Hole,17.74212,-64.60516,22:34,23:41,Clear,0-20%,Waxing Crescent,8.90%,14,Romina,20.5,20.57,21.34,17.74,20.82,20.04,Point 14 - LW: streetlights and parking lights from the casino are visible and cast a glare on the beach. The side of the hotel has a wide open path where vehicles come in and out. Tire track were present. 
 2026,10,13,10/13/2026,STX,Turner Hole (east),Turner Hole,17.74251,-64.60493,22:34,23:41,Clear,0-20%,Waxing Crescent,8.90%,15,Romina,20.22,20.74,21.32,17.72,20.65,20.00,Point 15 is 2.30 meters away from the seawall. This is the end of Carina Bay Resort. 
-2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75979,-64.57521,21:45,23:01,Clear,0-20%,New Moon,0.00%,7,Romina and Omari,22.38,21.33,20.47,22.21,21.15,21.60,
-2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75954,-64.57559,21:45,23:01,Clear,0-20%,New Moon,0.00%,8,Romina and Omari,22.17,20.34,21.07,21.35,21.16,21.23,
-2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75937,-64.57604,21:45,23:01,Clear,0-20%,New Moon,0.00%,9,Romina and Omari,22.33,20.15,21.17,21.34,21.15,21.25,
-2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75933,-64.57648,21:45,23:01,Clear,0-20%,New Moon,0.00%,10,Romina and Omari,22.84,20.33,21.11,21.36,21.08,21.41,
-2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.7592,-64.57692,21:45,23:01,Clear,0-20%,New Moon,0.00%,11,Romina and Omari,23.3,20.33,21.22,21.66,21.18,21.63,
-2026,11,9,11/9/2026,STX,Brown Bay,Brown Bay,17.75919,-64.57741,21:45,23:01,Clear,0-20%,New Moon,0.00%,12,Romina and Omari,23.65,20.31,21.39,21.66,21.19,21.75,
 2026,11,9,11/9/2026,STX,Boilers Bay,Boilers Bay,17.75767,-64.57145,23:20,0:28,Clear,0-20%,New Moon,0.00%,1,Romina and Omari,21.73,21.17,21.53,22.54,21.21,21.74,
 2026,11,9,11/9/2026,STX,Boilers Bay,Boilers Bay,17.75796,-64.5718,23:20,0:28,Clear,0-20%,New Moon,0.00%,2,Romina and Omari,21.73,21.09,21.45,21.86,21.25,21.53,
 2026,11,9,11/9/2026,STX,Boilers Bay,Boilers Bay,17.7583,-64.57215,23:20,0:28,Clear,0-20%,New Moon,0.00%,3,Romina and Omari,21.97,21.32,21.39,21.61,21.18,21.57,
