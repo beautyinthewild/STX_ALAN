@@ -1,0 +1,781 @@
+Index,Location,Year,Species,Nests,NNEs,Beach Length
+1,SPNWR North,2019,CM,741,1480,1.67
+1,SPNWR North,2019,DC,42,5,1.67
+1,SPNWR North,2019,EI,34,34,1.67
+2,SPNWR West,2019,CM,97,310,0.74
+2,SPNWR West,2019,DC,16,4,0.74
+2,SPNWR West,2019,EI,8,16,0.74
+3,SPNWR South,2019,CM,813,1992,2.86
+3,SPNWR South,2019,DC,9,1,2.86
+3,SPNWR South,2019,EI,17,45,2.86
+4,Vincent M. Pool,2019,CM,2,4,1.03
+4,Vincent M. Pool,2019,DC,N/A,N/A,1.03
+4,Vincent M. Pool,2019,EI,N/A,N/A,1.03
+5,Harbour Condos,2019,CM,N/A,N/A,0.87
+5,Harbour Condos,2019,DC,N/A,N/A,0.87
+5,Harbour Condos,2019,EI,N/A,N/A,0.87
+6,Cottages by the Sea,2019,CM,N/A,N/A,0.18
+6,Cottages by the Sea,2019,DC,N/A,N/A,0.18
+6,Cottages by the Sea,2019,EI,N/A,N/A,0.18
+7,Dorsch ,2019,CM,N/A,N/A,0.27
+7,Dorsch ,2019,DC,N/A,N/A,0.27
+7,Dorsch ,2019,EI,N/A,N/A,0.27
+8,Fort Frederick Beach,2019,CM,N/A,N/A,0.26
+8,Fort Frederick Beach,2019,DC,N/A,N/A,0.26
+8,Fort Frederick Beach,2019,EI,N/A,N/A,0.26
+9,STX Country Club,2019,CM,N/A,N/A,0.1
+9,STX Country Club,2019,DC,N/A,N/A,0.1
+9,STX Country Club,2019,EI,N/A,N/A,0.1
+10,Loops Village,2019,CM,N/A,N/A,0.09
+10,Loops Village,2019,DC,N/A,N/A,0.09
+10,Loops Village,2019,EI,N/A,N/A,0.09
+11,La Grange ,2019,CM,N/A,N/A,0.13
+11,La Grange ,2019,DC,N/A,N/A,0.13
+11,La Grange ,2019,EI,N/A,N/A,0.13
+12,Prosperity Beach,2019,CM,N/A,N/A,0.79
+12,Prosperity Beach,2019,DC,N/A,N/A,0.79
+12,Prosperity Beach,2019,EI,N/A,N/A,0.79
+13,Rainbow Beach,2019,CM,N/A,N/A,0.47
+13,Rainbow Beach,2019,DC,2,N/A,0.47
+13,Rainbow Beach,2019,EI,5,N/A,0.47
+14,Sprat Hall,2019,CM,N/A,N/A,0.3
+14,Sprat Hall,2019,DC,N/A,N/A,0.3
+14,Sprat Hall,2019,EI,62,N/A,0.3
+15,North Sprat,2019,CM,N/A,N/A,0.28
+15,North Sprat,2019,DC,N/A,N/A,0.28
+15,North Sprat,2019,EI,N/A,N/A,0.28
+16,Monk's Bath,2019,CM,N/A,N/A,0.62
+16,Monk's Bath,2019,DC,N/A,N/A,0.62
+16,Monk's Bath,2019,EI,N/A,N/A,0.62
+17,Annaly Bay,2019,CM,N/A,N/A,0.15
+17,Annaly Bay,2019,DC,N/A,N/A,0.15
+17,Annaly Bay,2019,EI,N/A,N/A,0.15
+18,Davis Bay,2019,CM,N/A,N/A,0.33
+18,Davis Bay,2019,DC,N/A,N/A,0.33
+18,Davis Bay,2019,EI,N/A,N/A,0.33
+19,Cane Bay,2019,CM,N/A,N/A,0.35
+19,Cane Bay,2019,DC,N/A,N/A,0.35
+19,Cane Bay,2019,EI,N/A,N/A,0.35
+20,Granada Del Mar,2019,CM,N/A,N/A,0.15
+20,Granada Del Mar,2019,DC,N/A,N/A,0.15
+20,Granada Del Mar,2019,EI,N/A,N/A,0.15
+21,Cruzan Princesse,2019,CM,N/A,N/A,0.11
+21,Cruzan Princesse,2019,DC,N/A,N/A,0.11
+21,Cruzan Princesse,2019,EI,N/A,N/A,0.11
+22,Palms Resort,2019,CM,N/A,N/A,0.43
+22,Palms Resort,2019,DC,N/A,N/A,0.43
+22,Palms Resort,2019,EI,N/A,N/A,0.43
+23,Hibiscus Beach Resort,2019,CM,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2019,DC,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2019,EI,N/A,N/A,0.13
+24,Sugar Beach,2019,CM,N/A,N/A,0.51
+24,Sugar Beach,2019,DC,N/A,N/A,0.51
+24,Sugar Beach,2019,EI,N/A,N/A,0.51
+25,Grotto Beach,2019,CM,0,34,0.47
+25,Grotto Beach,2019,DC,N/A,N/A,0.47
+25,Grotto Beach,2019,EI,N/A,14,0.47
+26,Mermaid Beach,2019,CM,N/A,N/A,0.16
+26,Mermaid Beach,2019,DC,N/A,N/A,0.16
+26,Mermaid Beach,2019,EI,N/A,N/A,0.16
+27,Whistle Beach,2019,CM,N/A,24,0.17
+27,Whistle Beach,2019,DC,N/A,N/A,0.17
+27,Whistle Beach,2019,EI,N/A,3,0.17
+28,Shoys ,2019,CM,N/A,N/A,0.46
+28,Shoys ,2019,DC,N/A,N/A,0.46
+28,Shoys ,2019,EI,N/A,N/A,0.46
+29,Chenay Bay,2019,CM,40,21,0.63
+29,Chenay Bay,2019,DC,0,0,0.63
+29,Chenay Bay,2019,EI,8,5,0.63
+30,Judith's Fancy,2019,CM,N/A,N/A,0.95
+30,Judith's Fancy,2019,DC,N/A,N/A,0.95
+30,Judith's Fancy,2019,EI,N/A,N/A,0.95
+31,Prune Bay,2019,CM,180,132,0.73
+31,Prune Bay,2019,DC,N/A,N/A,0.73
+31,Prune Bay,2019,EI,21,12,0.73
+32,Coakley Bay,2019,CM,31,22,0.61
+32,Coakley Bay,2019,DC,N/A,N/A,0.61
+32,Coakley Bay,2019,EI,14,3,0.61
+33,Buck Island North Shore,2019,CM,5,9,0.37
+33,Buck Island North Shore,2019,DC,0,0,0.37
+33,Buck Island North Shore,2019,EI,24,20,0.37
+34,Buck Island West Beach,2019,CM,18,15,0.51
+34,Buck Island West Beach,2019,DC,0,0,0.51
+34,Buck Island West Beach,2019,EI,3,6,0.51
+35,Buck Island South Shore,2019,CM,10,11,0.36
+35,Buck Island South Shore,2019,DC,0,0,0.36
+35,Buck Island South Shore,2019,EI,10,7,0.36
+36,Buck Island Turtle Bay,2019,CM,33,43,0.25
+36,Buck Island Turtle Bay,2019,DC,0,0,0.25
+36,Buck Island Turtle Bay,2019,EI,6,5,0.25
+37,Smuggler's Cove,2019,CM,6,2,0.24
+37,Smuggler's Cove,2019,DC,N/A,N/A,0.24
+37,Smuggler's Cove,2019,EI,3,0,0.24
+38,Cramer's Park ,2019,CM,0,2,0.28
+38,Cramer's Park ,2019,DC,1,N/A,0.28
+38,Cramer's Park ,2019,EI,0,1,0.28
+39,Brown Bay,2019,CM,N/A,N/A,0.35
+39,Brown Bay,2019,DC,N/A,N/A,0.35
+39,Brown Bay,2019,EI,N/A,N/A,0.35
+40,Boiler Bay,2019,CM,30,19,0.84
+40,Boiler Bay,2019,DC,N/A,N/A,0.84
+40,Boiler Bay,2019,EI,18,13,0.84
+41,Issac Bay,2019,CM,60,N/A,0.67
+41,Issac Bay,2019,DC,N/A,N/A,0.67
+41,Issac Bay,2019,EI,N/A,N/A,0.67
+42,Jacks Bay,2019,CM,232,406,0.86
+42,Jacks Bay,2019,DC,N/A,N/A,0.86
+42,Jacks Bay,2019,EI,N/A,N/A,0.86
+43,Grapetree Bay,2019,CM,283,122,0.35
+43,Grapetree Bay,2019,DC,N/A,N/A,0.35
+43,Grapetree Bay,2019,EI,105,35,0.35
+44,Turner Hole,2019,CM,34,12,1.27
+44,Turner Hole,2019,DC,N/A,N/A,1.27
+44,Turner Hole,2019,EI,6,3,1.27
+45,Rod Bay,2019,CM,N/A,N/A,0.58
+45,Rod Bay,2019,DC,N/A,N/A,0.58
+45,Rod Bay,2019,EI,N/A,N/A,0.58
+46,Ha'Penny,2019,CM,N/A,N/A,0.77
+46,Ha'Penny,2019,DC,N/A,N/A,0.77
+46,Ha'Penny,2019,EI,N/A,N/A,0.77
+47,Manchenil Bay,2019,CM,N/A,N/A,1.7
+47,Manchenil Bay,2019,DC,23,N/A,1.7
+47,Manchenil Bay,2019,EI,N/A,N/A,1.7
+48,Canegarden Bay,2019,CM,N/A,N/A,0.66
+48,Canegarden Bay,2019,DC,7,N/A,0.66
+48,Canegarden Bay,2019,EI,N/A,N/A,0.66
+49,Enfield Green,2019,CM,N/A,N/A,0.32
+49,Enfield Green,2019,DC,N/A,N/A,0.32
+49,Enfield Green,2019,EI,N/A,N/A,0.32
+50,Carlton Beach,2019,CM,N/A,N/A,0.41
+50,Carlton Beach,2019,DC,N/A,N/A,0.41
+50,Carlton Beach,2019,EI,N/A,N/A,0.41
+51,Campo Rico,2019,CM,N/A,N/A,0.97
+51,Campo Rico,2019,DC,N/A,N/A,0.97
+51,Campo Rico,2019,EI,N/A,N/A,0.97
+52,Concordia,2019,CM,N/A,N/A,0.64
+52,Concordia,2019,DC,N/A,N/A,0.64
+52,Concordia,2019,EI,N/A,N/A,0.64
+1,SPNWR North,2020,CM,625,1378,1.67
+1,SPNWR North,2020,DC,15,5,1.67
+1,SPNWR North,2020,EI,65,103,1.67
+2,SPNWR West,2020,CM,188,460,0.74
+2,SPNWR West,2020,DC,14,0,0.74
+2,SPNWR West,2020,EI,40,70,0.74
+3,SPNWR South,2020,CM,868,2208,2.86
+3,SPNWR South,2020,DC,2,3,2.86
+3,SPNWR South,2020,EI,75,143,2.86
+4,Vincent M. Pool,2020,CM,9,6,1.03
+4,Vincent M. Pool,2020,DC,1,0,1.03
+4,Vincent M. Pool,2020,EI,2,1,1.03
+5,Harbour Condos,2020,CM,N/A,N/A,0.87
+5,Harbour Condos,2020,DC,N/A,N/A,0.87
+5,Harbour Condos,2020,EI,N/A,N/A,0.87
+6,Cottages by the Sea,2020,CM,N/A,N/A,0.18
+6,Cottages by the Sea,2020,DC,N/A,N/A,0.18
+6,Cottages by the Sea,2020,EI,1,N/A,0.18
+7,Dorsch ,2020,CM,N/A,N/A,0.27
+7,Dorsch ,2020,DC,N/A,N/A,0.27
+7,Dorsch ,2020,EI,N/A,N/A,0.27
+8,Fort Frederick Beach,2020,CM,N/A,N/A,0.26
+8,Fort Frederick Beach,2020,DC,N/A,N/A,0.26
+8,Fort Frederick Beach,2020,EI,N/A,N/A,0.26
+9,STX Country Club,2020,CM,N/A,N/A,0.1
+9,STX Country Club,2020,DC,N/A,N/A,0.1
+9,STX Country Club,2020,EI,N/A,N/A,0.1
+10,Loops Village,2020,CM,N/A,N/A,0.09
+10,Loops Village,2020,DC,N/A,N/A,0.09
+10,Loops Village,2020,EI,N/A,N/A,0.09
+11,La Grange ,2020,CM,N/A,N/A,0.13
+11,La Grange ,2020,DC,N/A,N/A,0.13
+11,La Grange ,2020,EI,N/A,N/A,0.13
+12,Prosperity Beach,2020,CM,N/A,N/A,0.79
+12,Prosperity Beach,2020,DC,N/A,N/A,0.79
+12,Prosperity Beach,2020,EI,N/A,N/A,0.79
+13,Rainbow Beach,2020,CM,N/A,N/A,0.47
+13,Rainbow Beach,2020,DC,N/A,N/A,0.47
+13,Rainbow Beach,2020,EI,N/A,N/A,0.47
+14,Sprat Hall,2020,CM,N/A,N/A,0.3
+14,Sprat Hall,2020,DC,N/A,N/A,0.3
+14,Sprat Hall,2020,EI,N/A,N/A,0.3
+15,North Sprat,2020,CM,N/A,N/A,0.28
+15,North Sprat,2020,DC,N/A,N/A,0.28
+15,North Sprat,2020,EI,N/A,N/A,0.28
+16,Monk's Bath,2020,CM,N/A,N/A,0.62
+16,Monk's Bath,2020,DC,N/A,N/A,0.62
+16,Monk's Bath,2020,EI,N/A,N/A,0.62
+17,Annaly Bay,2020,CM,N/A,N/A,0.15
+17,Annaly Bay,2020,DC,N/A,N/A,0.15
+17,Annaly Bay,2020,EI,N/A,N/A,0.15
+18,Davis Bay,2020,CM,N/A,N/A,0.33
+18,Davis Bay,2020,DC,N/A,N/A,0.33
+18,Davis Bay,2020,EI,N/A,N/A,0.33
+19,Cane Bay,2020,CM,N/A,N/A,0.35
+19,Cane Bay,2020,DC,N/A,N/A,0.35
+19,Cane Bay,2020,EI,N/A,N/A,0.35
+20,Granada Del Mar,2020,CM,N/A,N/A,0.15
+20,Granada Del Mar,2020,DC,N/A,N/A,0.15
+20,Granada Del Mar,2020,EI,N/A,N/A,0.15
+21,Cruzan Princesse,2020,CM,N/A,N/A,0.11
+21,Cruzan Princesse,2020,DC,N/A,N/A,0.11
+21,Cruzan Princesse,2020,EI,N/A,N/A,0.11
+22,Palms Resort,2020,CM,N/A,N/A,0.43
+22,Palms Resort,2020,DC,N/A,N/A,0.43
+22,Palms Resort,2020,EI,N/A,N/A,0.43
+23,Hibiscus Beach Resort,2020,CM,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2020,DC,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2020,EI,N/A,N/A,0.13
+24,Sugar Beach,2020,CM,N/A,N/A,0.51
+24,Sugar Beach,2020,DC,N/A,N/A,0.51
+24,Sugar Beach,2020,EI,N/A,N/A,0.51
+25,Grotto Beach,2020,CM,0,64,0.47
+25,Grotto Beach,2020,DC,N/A,N/A,0.47
+25,Grotto Beach,2020,EI,0,27,0.47
+26,Mermaid Beach,2020,CM,N/A,N/A,0.16
+26,Mermaid Beach,2020,DC,N/A,N/A,0.16
+26,Mermaid Beach,2020,EI,N/A,N/A,0.16
+27,Whistle Beach,2020,CM,0,53,0.17
+27,Whistle Beach,2020,DC,N/A,N/A,0.17
+27,Whistle Beach,2020,EI,0,15,0.17
+28,Shoys ,2020,CM,N/A,N/A,0.46
+28,Shoys ,2020,DC,N/A,N/A,0.46
+28,Shoys ,2020,EI,N/A,N/A,0.46
+29,Chenay Bay,2020,CM,N/A,N/A,0.63
+29,Chenay Bay,2020,DC,3,0,0.63
+29,Chenay Bay,2020,EI,N/A,N/A,0.63
+30,Judith's Fancy,2020,CM,N/A,N/A,0.95
+30,Judith's Fancy,2020,DC,N/A,N/A,0.95
+30,Judith's Fancy,2020,EI,N/A,N/A,0.95
+31,Prune Bay,2020,CM,159,75,0.73
+31,Prune Bay,2020,DC,0,0,0.73
+31,Prune Bay,2020,EI,15,10,0.73
+32,Coakley Bay,2020,CM,33,16,0.61
+32,Coakley Bay,2020,DC,5,2,0.61
+32,Coakley Bay,2020,EI,9,7,0.61
+33,Buck Island North Shore,2020,CM,7,31,0.37
+33,Buck Island North Shore,2020,DC,0,0,0.37
+33,Buck Island North Shore,2020,EI,15,73,0.37
+34,Buck Island West Beach,2020,CM,39,72,0.51
+34,Buck Island West Beach,2020,DC,0,0,0.51
+34,Buck Island West Beach,2020,EI,5,12,0.51
+35,Buck Island South Shore,2020,CM,6,17,0.36
+35,Buck Island South Shore,2020,DC,0,0,0.36
+35,Buck Island South Shore,2020,EI,18,35,0.36
+36,Buck Island Turtle Bay,2020,CM,28,90,0.25
+36,Buck Island Turtle Bay,2020,DC,0,0,0.25
+36,Buck Island Turtle Bay,2020,EI,5,27,0.25
+37,Smuggler's Cove,2020,CM,16,4,0.24
+37,Smuggler's Cove,2020,DC,0,0,0.24
+37,Smuggler's Cove,2020,EI,7,0,0.24
+38,Cramer's Park ,2020,CM,8,7,0.28
+38,Cramer's Park ,2020,DC,0,0,0.28
+38,Cramer's Park ,2020,EI,3,1,0.28
+39,Brown Bay,2020,CM,11,33,0.35
+39,Brown Bay,2020,DC,0,0,0.35
+39,Brown Bay,2020,EI,8,15,0.35
+40,Boiler Bay,2020,CM,95,64,0.84
+40,Boiler Bay,2020,DC,0,0,0.84
+40,Boiler Bay,2020,EI,6,9,0.84
+41,Issac Bay,2020,CM,N/A,N/A,0.67
+41,Issac Bay,2020,DC,N/A,N/A,0.67
+41,Issac Bay,2020,EI,N/A,N/A,0.67
+42,Jacks Bay,2020,CM,N/A,N/A,0.86
+42,Jacks Bay,2020,DC,N/A,N/A,0.86
+42,Jacks Bay,2020,EI,N/A,N/A,0.86
+43,Grapetree Bay,2020,CM,76,79,0.35
+43,Grapetree Bay,2020,DC,0,0,0.35
+43,Grapetree Bay,2020,EI,12,9,0.35
+44,Turner Hole,2020,CM,N/A,N/A,1.27
+44,Turner Hole,2020,DC,N/A,N/A,1.27
+44,Turner Hole,2020,EI,N/A,N/A,1.27
+45,Rod Bay,2020,CM,N/A,N/A,0.58
+45,Rod Bay,2020,DC,N/A,N/A,0.58
+45,Rod Bay,2020,EI,N/A,N/A,0.58
+46,Ha'Penny,2020,CM,N/A,N/A,0.77
+46,Ha'Penny,2020,DC,N/A,N/A,0.77
+46,Ha'Penny,2020,EI,N/A,N/A,0.77
+47,Manchenil Bay,2020,CM,N/A,N/A,1.7
+47,Manchenil Bay,2020,DC,25,1,1.7
+47,Manchenil Bay,2020,EI,N/A,N/A,1.7
+48,Canegarden Bay,2020,CM,N/A,N/A,0.66
+48,Canegarden Bay,2020,DC,4,1,0.66
+48,Canegarden Bay,2020,EI,N/A,N/A,0.66
+49,Enfield Green,2020,CM,N/A,N/A,0.32
+49,Enfield Green,2020,DC,N/A,N/A,0.32
+49,Enfield Green,2020,EI,N/A,N/A,0.32
+50,Carlton Beach,2020,CM,N/A,N/A,0.41
+50,Carlton Beach,2020,DC,N/A,N/A,0.41
+50,Carlton Beach,2020,EI,N/A,N/A,0.41
+51,Campo Rico,2020,CM,N/A,N/A,0.97
+51,Campo Rico,2020,DC,N/A,N/A,0.97
+51,Campo Rico,2020,EI,N/A,N/A,0.97
+52,Concordia,2020,CM,N/A,N/A,0.64
+52,Concordia,2020,DC,N/A,N/A,0.64
+52,Concordia,2020,EI,N/A,N/A,0.64
+1,SPNWR North,2021,CM,602,1325,1.67
+1,SPNWR North,2021,DC,57,5,1.67
+1,SPNWR North,2021,EI,52,30,1.67
+2,SPNWR West,2021,CM,143,394,0.74
+2,SPNWR West,2021,DC,27,0,0.74
+2,SPNWR West,2021,EI,30,37,0.74
+3,SPNWR South,2021,CM,653,1541,2.86
+3,SPNWR South,2021,DC,10,4,2.86
+3,SPNWR South,2021,EI,152,147,2.86
+4,Vincent M. Pool,2021,CM,107,232,1.03
+4,Vincent M. Pool,2021,DC,1,0,1.03
+4,Vincent M. Pool,2021,EI,16,6,1.03
+5,Harbour Condos,2021,CM,18,36,0.87
+5,Harbour Condos,2021,DC,0,0,0.87
+5,Harbour Condos,2021,EI,3,4,0.87
+6,Cottages by the Sea,2021,CM,4,3,0.18
+6,Cottages by the Sea,2021,DC,1,0,0.18
+6,Cottages by the Sea,2021,EI,11,5,0.18
+7,Dorsch ,2021,CM,1,0,0.27
+7,Dorsch ,2021,DC,0,0,0.27
+7,Dorsch ,2021,EI,8,3,0.27
+8,Fort Frederick Beach,2021,CM,0,0,0.26
+8,Fort Frederick Beach,2021,DC,0,0,0.26
+8,Fort Frederick Beach,2021,EI,1,1,0.26
+9,STX Country Club,2021,CM,N/A,N/A,0.1
+9,STX Country Club,2021,DC,N/A,N/A,0.1
+9,STX Country Club,2021,EI,N/A,N/A,0.1
+10,Loops Village,2021,CM,N/A,N/A,0.09
+10,Loops Village,2021,DC,N/A,N/A,0.09
+10,Loops Village,2021,EI,N/A,N/A,0.09
+11,La Grange ,2021,CM,0,0,0.13
+11,La Grange ,2021,DC,0,0,0.13
+11,La Grange ,2021,EI,1,0,0.13
+12,Prosperity Beach,2021,CM,0,0,0.79
+12,Prosperity Beach,2021,DC,0,0,0.79
+12,Prosperity Beach,2021,EI,0,1,0.79
+13,Rainbow Beach,2021,CM,0,1,0.47
+13,Rainbow Beach,2021,DC,0,0,0.47
+13,Rainbow Beach,2021,EI,0,2,0.47
+14,Sprat Hall,2021,CM,1,2,0.3
+14,Sprat Hall,2021,DC,2,1,0.3
+14,Sprat Hall,2021,EI,93,63,0.3
+15,North Sprat,2021,CM,N/A,N/A,0.28
+15,North Sprat,2021,DC,N/A,N/A,0.28
+15,North Sprat,2021,EI,N/A,N/A,0.28
+16,Monk's Bath,2021,CM,12,46,0.62
+16,Monk's Bath,2021,DC,0,0,0.62
+16,Monk's Bath,2021,EI,1,9,0.62
+17,Annaly Bay,2021,CM,0,0,0.15
+17,Annaly Bay,2021,DC,0,0,0.15
+17,Annaly Bay,2021,EI,1,0,0.15
+18,Davis Bay,2021,CM,N/A,N/A,0.33
+18,Davis Bay,2021,DC,N/A,N/A,0.33
+18,Davis Bay,2021,EI,N/A,N/A,0.33
+19,Cane Bay,2021,CM,N/A,N/A,0.35
+19,Cane Bay,2021,DC,N/A,N/A,0.35
+19,Cane Bay,2021,EI,N/A,N/A,0.35
+20,Granada Del Mar,2021,CM,12,26,0.15
+20,Granada Del Mar,2021,DC,0,0,0.15
+20,Granada Del Mar,2021,EI,0,0,0.15
+21,Cruzan Princesse,2021,CM,1,1,0.11
+21,Cruzan Princesse,2021,DC,0,1,0.11
+21,Cruzan Princesse,2021,EI,1,0,0.11
+22,Palms Resort,2021,CM,1,1,0.43
+22,Palms Resort,2021,DC,0,0,0.43
+22,Palms Resort,2021,EI,0,4,0.43
+23,Hibiscus Beach Resort,2021,CM,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2021,DC,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2021,EI,N/A,N/A,0.13
+24,Sugar Beach,2021,CM,N/A,N/A,0.51
+24,Sugar Beach,2021,DC,N/A,N/A,0.51
+24,Sugar Beach,2021,EI,N/A,N/A,0.51
+25,Grotto Beach,2021,CM,0,67,0.47
+25,Grotto Beach,2021,DC,N/A,N/A,0.47
+25,Grotto Beach,2021,EI,0,45,0.47
+26,Mermaid Beach,2021,CM,N/A,N/A,0.16
+26,Mermaid Beach,2021,DC,N/A,N/A,0.16
+26,Mermaid Beach,2021,EI,N/A,N/A,0.16
+27,Whistle Beach,2021,CM,0,30,0.17
+27,Whistle Beach,2021,DC,N/A,N/A,0.17
+27,Whistle Beach,2021,EI,0,11,0.17
+28,Shoys ,2021,CM,3,1,0.46
+28,Shoys ,2021,DC,2,0,0.46
+28,Shoys ,2021,EI,0,0,0.46
+29,Chenay Bay,2021,CM,N/A,N/A,0.63
+29,Chenay Bay,2021,DC,N/A,N/A,0.63
+29,Chenay Bay,2021,EI,N/A,N/A,0.63
+30,Judith's Fancy,2021,CM,N/A,N/A,0.95
+30,Judith's Fancy,2021,DC,N/A,N/A,0.95
+30,Judith's Fancy,2021,EI,N/A,N/A,0.95
+31,Prune Bay,2021,CM,124,172,0.73
+31,Prune Bay,2021,DC,N/A,N/A,0.73
+31,Prune Bay,2021,EI,16,3,0.73
+32,Coakley Bay,2021,CM,42,7,0.61
+32,Coakley Bay,2021,DC,N/A,N/A,0.61
+32,Coakley Bay,2021,EI,25,0,0.61
+33,Buck Island North Shore,2021,CM,N/A,N/A,0.37
+33,Buck Island North Shore,2021,DC,0,0,0.37
+33,Buck Island North Shore,2021,EI,N/A,N/A,0.37
+34,Buck Island West Beach,2021,CM,N/A,N/A,0.51
+34,Buck Island West Beach,2021,DC,2,1,0.51
+34,Buck Island West Beach,2021,EI,N/A,30,0.51
+35,Buck Island South Shore,2021,CM,N/A,N/A,0.36
+35,Buck Island South Shore,2021,DC,0,0,0.36
+35,Buck Island South Shore,2021,EI,N/A,N/A,0.36
+36,Buck Island Turtle Bay,2021,CM,N/A,N/A,0.25
+36,Buck Island Turtle Bay,2021,DC,0,0,0.25
+36,Buck Island Turtle Bay,2021,EI,N/A,N/A,0.25
+37,Smuggler's Cove,2021,CM,18,18,0.24
+37,Smuggler's Cove,2021,DC,N/A,N/A,0.24
+37,Smuggler's Cove,2021,EI,5,1,0.24
+38,Cramer's Park ,2021,CM,1,0,0.28
+38,Cramer's Park ,2021,DC,N/A,N/A,0.28
+38,Cramer's Park ,2021,EI,0,0,0.28
+39,Brown Bay,2021,CM,8,7,0.35
+39,Brown Bay,2021,DC,N/A,N/A,0.35
+39,Brown Bay,2021,EI,8,0,0.35
+40,Boiler Bay,2021,CM,98,54,0.84
+40,Boiler Bay,2021,DC,N/A,N/A,0.84
+40,Boiler Bay,2021,EI,33,5,0.84
+41,Issac Bay,2021,CM,N/A,N/A,0.67
+41,Issac Bay,2021,DC,N/A,N/A,0.67
+41,Issac Bay,2021,EI,N/A,N/A,0.67
+42,Jacks Bay,2021,CM,N/A,N/A,0.86
+42,Jacks Bay,2021,DC,N/A,N/A,0.86
+42,Jacks Bay,2021,EI,N/A,N/A,0.86
+43,Grapetree Bay,2021,CM,75,100,0.35
+43,Grapetree Bay,2021,DC,N/A,N/A,0.35
+43,Grapetree Bay,2021,EI,39,14,0.35
+44,Turner Hole,2021,CM,0,1,1.27
+44,Turner Hole,2021,DC,N/A,N/A,1.27
+44,Turner Hole,2021,EI,4,0,1.27
+45,Rod Bay,2021,CM,N/A,N/A,0.58
+45,Rod Bay,2021,DC,N/A,N/A,0.58
+45,Rod Bay,2021,EI,N/A,N/A,0.58
+46,Ha'Penny,2021,CM,5,8,0.77
+46,Ha'Penny,2021,DC,5,7,0.77
+46,Ha'Penny,2021,EI,7,10,0.77
+47,Manchenil Bay,2021,CM,309,662,1.7
+47,Manchenil Bay,2021,DC,26,5,1.7
+47,Manchenil Bay,2021,EI,18,18,1.7
+48,Canegarden Bay,2021,CM,5,10,0.66
+48,Canegarden Bay,2021,DC,6,1,0.66
+48,Canegarden Bay,2021,EI,1,1,0.66
+49,Enfield Green,2021,CM,N/A,N/A,0.32
+49,Enfield Green,2021,DC,N/A,N/A,0.32
+49,Enfield Green,2021,EI,N/A,N/A,0.32
+50,Carlton Beach,2021,CM,N/A,N/A,0.41
+50,Carlton Beach,2021,DC,N/A,N/A,0.41
+50,Carlton Beach,2021,EI,N/A,N/A,0.41
+51,Campo Rico,2021,CM,1,0,0.97
+51,Campo Rico,2021,DC,1,1,0.97
+51,Campo Rico,2021,EI,0,0,0.97
+52,Concordia,2021,CM,N/A,N/A,0.64
+52,Concordia,2021,DC,N/A,N/A,0.64
+52,Concordia,2021,EI,N/A,N/A,0.64
+1,SPNWR North,2022,CM,514,1169,1.67
+1,SPNWR North,2022,DC,53,7,1.67
+1,SPNWR North,2022,EI,72,85,1.67
+2,SPNWR West,2022,CM,96,248,0.74
+2,SPNWR West,2022,DC,4,5,0.74
+2,SPNWR West,2022,EI,17,42,0.74
+3,SPNWR South,2022,CM,486,1218,2.86
+3,SPNWR South,2022,DC,2,0,2.86
+3,SPNWR South,2022,EI,103,73,2.86
+4,Vincent M. Pool,2022,CM,128,166,1.03
+4,Vincent M. Pool,2022,DC,3,0,1.03
+4,Vincent M. Pool,2022,EI,37,33,1.03
+5,Harbour Condos,2022,CM,19,10,0.87
+5,Harbour Condos,2022,DC,0,0,0.87
+5,Harbour Condos,2022,EI,5,5,0.87
+6,Cottages by the Sea,2022,CM,8,8,0.18
+6,Cottages by the Sea,2022,DC,1,0,0.18
+6,Cottages by the Sea,2022,EI,5,0,0.18
+7,Dorsch ,2022,CM,3,6,0.27
+7,Dorsch ,2022,DC,0,0,0.27
+7,Dorsch ,2022,EI,5,4,0.27
+8,Fort Frederick Beach,2022,CM,2,3,0.26
+8,Fort Frederick Beach,2022,DC,0,0,0.26
+8,Fort Frederick Beach,2022,EI,32,13,0.26
+9,STX Country Club,2022,CM,0,0,0.1
+9,STX Country Club,2022,DC,0,0,0.1
+9,STX Country Club,2022,EI,1,0,0.1
+10,Loops Village,2022,CM,1,3,0.09
+10,Loops Village,2022,DC,0,0,0.09
+10,Loops Village,2022,EI,3,0,0.09
+11,La Grange ,2022,CM,4,0,0.13
+11,La Grange ,2022,DC,0,0,0.13
+11,La Grange ,2022,EI,6,6,0.13
+12,Prosperity Beach,2022,CM,3,6,0.79
+12,Prosperity Beach,2022,DC,0,0,0.79
+12,Prosperity Beach,2022,EI,9,14,0.79
+13,Rainbow Beach,2022,CM,0,0,0.47
+13,Rainbow Beach,2022,DC,0,0,0.47
+13,Rainbow Beach,2022,EI,4,11,0.47
+14,Sprat Hall,2022,CM,0,2,0.3
+14,Sprat Hall,2022,DC,1,0,0.3
+14,Sprat Hall,2022,EI,39,41,0.3
+15,North Sprat,2022,CM,1,5,0.28
+15,North Sprat,2022,DC,0,0,0.28
+15,North Sprat,2022,EI,15,25,0.28
+16,Monk's Bath,2022,CM,7,7,0.62
+16,Monk's Bath,2022,DC,0,0,0.62
+16,Monk's Bath,2022,EI,12,24,0.62
+17,Annaly Bay,2022,CM,N/A,N/A,0.15
+17,Annaly Bay,2022,DC,N/A,N/A,0.15
+17,Annaly Bay,2022,EI,N/A,N/A,0.15
+18,Davis Bay,2022,CM,2,0,0.33
+18,Davis Bay,2022,DC,11,0,0.33
+18,Davis Bay,2022,EI,9,0,0.33
+19,Cane Bay,2022,CM,0,1,0.35
+19,Cane Bay,2022,DC,1,0,0.35
+19,Cane Bay,2022,EI,1,0,0.35
+20,Granada Del Mar,2022,CM,42,7,0.15
+20,Granada Del Mar,2022,DC,0,0,0.15
+20,Granada Del Mar,2022,EI,4,1,0.15
+21,Cruzan Princesse,2022,CM,8,0,0.11
+21,Cruzan Princesse,2022,DC,0,0,0.11
+21,Cruzan Princesse,2022,EI,2,0,0.11
+22,Palms Resort,2022,CM,5,2,0.43
+22,Palms Resort,2022,DC,0,0,0.43
+22,Palms Resort,2022,EI,0,0,0.43
+23,Hibiscus Beach Resort,2022,CM,9,3,0.13
+23,Hibiscus Beach Resort,2022,DC,0,0,0.13
+23,Hibiscus Beach Resort,2022,EI,1,0,0.13
+24,Sugar Beach,2022,CM,2,0,0.51
+24,Sugar Beach,2022,DC,0,0,0.51
+24,Sugar Beach,2022,EI,0,0,0.51
+25,Grotto Beach,2022,CM,0,31,0.47
+25,Grotto Beach,2022,DC,N/A,N/A,0.47
+25,Grotto Beach,2022,EI,0,26,0.47
+26,Mermaid Beach,2022,CM,N/A,N/A,0.16
+26,Mermaid Beach,2022,DC,N/A,N/A,0.16
+26,Mermaid Beach,2022,EI,N/A,N/A,0.16
+27,Whistle Beach,2022,CM,0,36,0.17
+27,Whistle Beach,2022,DC,N/A,N/A,0.17
+27,Whistle Beach,2022,EI,0,5,0.17
+28,Shoys ,2022,CM,N/A,N/A,0.46
+28,Shoys ,2022,DC,N/A,N/A,0.46
+28,Shoys ,2022,EI,N/A,N/A,0.46
+29,Chenay Bay,2022,CM,N/A,N/A,0.63
+29,Chenay Bay,2022,DC,N/A,N/A,0.63
+29,Chenay Bay,2022,EI,N/A,N/A,0.63
+30,Judith's Fancy,2022,CM,16,4,0.95
+30,Judith's Fancy,2022,DC,0,0,0.95
+30,Judith's Fancy,2022,EI,1,1,0.95
+31,Prune Bay,2022,CM,222,99,0.73
+31,Prune Bay,2022,DC,0,0,0.73
+31,Prune Bay,2022,EI,13,2,0.73
+32,Coakley Bay,2022,CM,9,4,0.61
+32,Coakley Bay,2022,DC,0,0,0.61
+32,Coakley Bay,2022,EI,5,2,0.61
+33,Buck Island North Shore,2022,CM,3,14,0.37
+33,Buck Island North Shore,2022,DC,0,0,0.37
+33,Buck Island North Shore,2022,EI,3,72,0.37
+34,Buck Island West Beach,2022,CM,21,74,0.51
+34,Buck Island West Beach,2022,DC,0,1,0.51
+34,Buck Island West Beach,2022,EI,4,36,0.51
+35,Buck Island South Shore,2022,CM,4,29,0.36
+35,Buck Island South Shore,2022,DC,0,0,0.36
+35,Buck Island South Shore,2022,EI,11,55,0.36
+36,Buck Island Turtle Bay,2022,CM,27,101,0.25
+36,Buck Island Turtle Bay,2022,DC,0,0,0.25
+36,Buck Island Turtle Bay,2022,EI,0,20,0.25
+37,Smuggler's Cove,2022,CM,7,4,0.24
+37,Smuggler's Cove,2022,DC,0,0,0.24
+37,Smuggler's Cove,2022,EI,4,0,0.24
+38,Cramer's Park ,2022,CM,0,0,0.28
+38,Cramer's Park ,2022,DC,0,0,0.28
+38,Cramer's Park ,2022,EI,0,0,0.28
+39,Brown Bay,2022,CM,7,0,0.35
+39,Brown Bay,2022,DC,0,0,0.35
+39,Brown Bay,2022,EI,3,0,0.35
+40,Boiler Bay,2022,CM,52,17,0.84
+40,Boiler Bay,2022,DC,0,0,0.84
+40,Boiler Bay,2022,EI,25,0,0.84
+41,Issac Bay,2022,CM,N/A,N/A,0.67
+41,Issac Bay,2022,DC,N/A,N/A,0.67
+41,Issac Bay,2022,EI,N/A,N/A,0.67
+42,Jacks Bay,2022,CM,N/A,N/A,0.86
+42,Jacks Bay,2022,DC,N/A,N/A,0.86
+42,Jacks Bay,2022,EI,N/A,N/A,0.86
+43,Grapetree Bay,2022,CM,98,52,0.35
+43,Grapetree Bay,2022,DC,0,0,0.35
+43,Grapetree Bay,2022,EI,41,21,0.35
+44,Turner Hole,2022,CM,127,26,1.27
+44,Turner Hole,2022,DC,0,0,1.27
+44,Turner Hole,2022,EI,35,3,1.27
+45,Rod Bay,2022,CM,0,0,0.58
+45,Rod Bay,2022,DC,0,0,0.58
+45,Rod Bay,2022,EI,0,0,0.58
+46,Ha'Penny,2022,CM,43,97,0.77
+46,Ha'Penny,2022,DC,5,3,0.77
+46,Ha'Penny,2022,EI,14,12,0.77
+47,Manchenil Bay,2022,CM,406,902,1.7
+47,Manchenil Bay,2022,DC,23,3,1.7
+47,Manchenil Bay,2022,EI,11,6,1.7
+48,Canegarden Bay,2022,CM,0,2,0.66
+48,Canegarden Bay,2022,DC,11,4,0.66
+48,Canegarden Bay,2022,EI,0,0,0.66
+49,Enfield Green,2022,CM,N/A,N/A,0.32
+49,Enfield Green,2022,DC,N/A,N/A,0.32
+49,Enfield Green,2022,EI,N/A,N/A,0.32
+50,Carlton Beach,2022,CM,0,0,0.41
+50,Carlton Beach,2022,DC,1,0,0.41
+50,Carlton Beach,2022,EI,0,0,0.41
+51,Campo Rico,2022,CM,20,19,0.97
+51,Campo Rico,2022,DC,0,0,0.97
+51,Campo Rico,2022,EI,8,2,0.97
+52,Concordia,2022,CM,21,12,0.64
+52,Concordia,2022,DC,0,0,0.64
+52,Concordia,2022,EI,1,1,0.64
+1,SPNWR North,2023,CM,663,2615,1.67
+1,SPNWR North,2023,DC,10,1,1.67
+1,SPNWR North,2023,EI,83,109,1.67
+2,SPNWR West,2023,CM,93,484,0.74
+2,SPNWR West,2023,DC,8,0,0.74
+2,SPNWR West,2023,EI,26,61,0.74
+3,SPNWR South,2023,CM,637,2233,2.86
+3,SPNWR South,2023,DC,0,0,2.86
+3,SPNWR South,2023,EI,135,130,2.86
+4,Vincent M. Pool,2023,CM,337,570,1.03
+4,Vincent M. Pool,2023,DC,1,0,1.03
+4,Vincent M. Pool,2023,EI,48,25,1.03
+5,Harbour Condos,2023,CM,31,47,0.87
+5,Harbour Condos,2023,DC,0,0,0.87
+5,Harbour Condos,2023,EI,14,14,0.87
+6,Cottages by the Sea,2023,CM,4,9,0.18
+6,Cottages by the Sea,2023,DC,0,0,0.18
+6,Cottages by the Sea,2023,EI,2,3,0.18
+7,Dorsch ,2023,CM,2,16,0.27
+7,Dorsch ,2023,DC,0,0,0.27
+7,Dorsch ,2023,EI,6,8,0.27
+8,Fort Frederick Beach,2023,CM,0,3,0.26
+8,Fort Frederick Beach,2023,DC,0,0,0.26
+8,Fort Frederick Beach,2023,EI,8,19,0.26
+9,STX Country Club,2023,CM,0,0,0.1
+9,STX Country Club,2023,DC,0,0,0.1
+9,STX Country Club,2023,EI,1,0,0.1
+10,Loops Village,2023,CM,0,4,0.09
+10,Loops Village,2023,DC,0,0,0.09
+10,Loops Village,2023,EI,12,3,0.09
+11,La Grange ,2023,CM,0,0,0.13
+11,La Grange ,2023,DC,0,0,0.13
+11,La Grange ,2023,EI,14,0,0.13
+12,Prosperity Beach,2023,CM,2,6,0.79
+12,Prosperity Beach,2023,DC,0,0,0.79
+12,Prosperity Beach,2023,EI,47,44,0.79
+13,Rainbow Beach,2023,CM,0,1,0.47
+13,Rainbow Beach,2023,DC,0,0,0.47
+13,Rainbow Beach,2023,EI,6,5,0.47
+14,Sprat Hall,2023,CM,1,1,0.3
+14,Sprat Hall,2023,DC,0,0,0.3
+14,Sprat Hall,2023,EI,35,35,0.3
+15,North Sprat,2023,CM,0,2,0.28
+15,North Sprat,2023,DC,0,0,0.28
+15,North Sprat,2023,EI,58,66,0.28
+16,Monk's Bath,2023,CM,67,183,0.62
+16,Monk's Bath,2023,DC,0,0,0.62
+16,Monk's Bath,2023,EI,83,99,0.62
+17,Annaly Bay,2023,CM,N/A,N/A,0.15
+17,Annaly Bay,2023,DC,N/A,N/A,0.15
+17,Annaly Bay,2023,EI,N/A,N/A,0.15
+18,Davis Bay,2023,CM,22,6,0.33
+18,Davis Bay,2023,DC,0,0,0.33
+18,Davis Bay,2023,EI,6,1,0.33
+19,Cane Bay,2023,CM,1,0,0.35
+19,Cane Bay,2023,DC,0,0,0.35
+19,Cane Bay,2023,EI,0,0,0.35
+20,Granada Del Mar,2023,CM,24,7,0.15
+20,Granada Del Mar,2023,DC,0,0,0.15
+20,Granada Del Mar,2023,EI,8,2,0.15
+21,Cruzan Princesse,2023,CM,3,0,0.11
+21,Cruzan Princesse,2023,DC,0,0,0.11
+21,Cruzan Princesse,2023,EI,1,2,0.11
+22,Palms Resort,2023,CM,N/A,N/A,0.43
+22,Palms Resort,2023,DC,N/A,N/A,0.43
+22,Palms Resort,2023,EI,N/A,N/A,0.43
+23,Hibiscus Beach Resort,2023,CM,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2023,DC,N/A,N/A,0.13
+23,Hibiscus Beach Resort,2023,EI,N/A,N/A,0.13
+24,Sugar Beach,2023,CM,N/A,N/A,0.51
+24,Sugar Beach,2023,DC,N/A,N/A,0.51
+24,Sugar Beach,2023,EI,N/A,N/A,0.51
+25,Grotto Beach,2023,CM,4,97,0.47
+25,Grotto Beach,2023,DC,0,0,0.47
+25,Grotto Beach,2023,EI,0,3,0.47
+26,Mermaid Beach,2023,CM,N/A,N/A,0.16
+26,Mermaid Beach,2023,DC,N/A,N/A,0.16
+26,Mermaid Beach,2023,EI,N/A,N/A,0.16
+27,Whistle Beach,2023,CM,0,69,0.17
+27,Whistle Beach,2023,DC,N/A,N/A,0.17
+27,Whistle Beach,2023,EI,0,2,0.17
+28,Shoys ,2023,CM,N/A,N/A,0.46
+28,Shoys ,2023,DC,N/A,N/A,0.46
+28,Shoys ,2023,EI,N/A,N/A,0.46
+29,Chenay Bay,2023,CM,N/A,N/A,0.63
+29,Chenay Bay,2023,DC,N/A,N/A,0.63
+29,Chenay Bay,2023,EI,N/A,N/A,0.63
+30,Judith's Fancy,2023,CM,N/A,N/A,0.95
+30,Judith's Fancy,2023,DC,N/A,N/A,0.95
+30,Judith's Fancy,2023,EI,N/A,N/A,0.95
+31,Prune Bay,2023,CM,181,269,0.73
+31,Prune Bay,2023,DC,0,0,0.73
+31,Prune Bay,2023,EI,25,3,0.73
+32,Coakley Bay,2023,CM,27,23,0.61
+32,Coakley Bay,2023,DC,0,0,0.61
+32,Coakley Bay,2023,EI,11,5,0.61
+33,Buck Island North Shore,2023,CM,5,16,0.37
+33,Buck Island North Shore,2023,DC,0,0,0.37
+33,Buck Island North Shore,2023,EI,24,44,0.37
+34,Buck Island West Beach,2023,CM,47,131,0.51
+34,Buck Island West Beach,2023,DC,1,2,0.51
+34,Buck Island West Beach,2023,EI,8,13,0.51
+35,Buck Island South Shore,2023,CM,15,47,0.36
+35,Buck Island South Shore,2023,DC,0,0,0.36
+35,Buck Island South Shore,2023,EI,21,59,0.36
+36,Buck Island Turtle Bay,2023,CM,48,112,0.25
+36,Buck Island Turtle Bay,2023,DC,0,0,0.25
+36,Buck Island Turtle Bay,2023,EI,1,12,0.25
+37,Smuggler's Cove,2023,CM,31,20,0.24
+37,Smuggler's Cove,2023,DC,0,0,0.24
+37,Smuggler's Cove,2023,EI,6,1,0.24
+38,Cramer's Park ,2023,CM,0,0,0.28
+38,Cramer's Park ,2023,DC,0,0,0.28
+38,Cramer's Park ,2023,EI,0,0,0.28
+39,Brown Bay,2023,CM,10,7,0.35
+39,Brown Bay,2023,DC,0,0,0.35
+39,Brown Bay,2023,EI,5,1,0.35
+40,Boiler Bay,2023,CM,101,38,0.84
+40,Boiler Bay,2023,DC,0,0,0.84
+40,Boiler Bay,2023,EI,68,36,0.84
+41,Issac Bay,2023,CM,1,0,0.67
+41,Issac Bay,2023,DC,0,0,0.67
+41,Issac Bay,2023,EI,0,0,0.67
+42,Jacks Bay,2023,CM,N/A,N/A,0.86
+42,Jacks Bay,2023,DC,N/A,N/A,0.86
+42,Jacks Bay,2023,EI,N/A,N/A,0.86
+43,Grapetree Bay,2023,CM,250,71,0.35
+43,Grapetree Bay,2023,DC,0,0,0.35
+43,Grapetree Bay,2023,EI,46,18,0.35
+44,Turner Hole,2023,CM,91,25,1.27
+44,Turner Hole,2023,DC,0,0,1.27
+44,Turner Hole,2023,EI,21,8,1.27
+45,Rod Bay,2023,CM,18,8,0.58
+45,Rod Bay,2023,DC,0,0,0.58
+45,Rod Bay,2023,EI,5,2,0.58
+46,Ha'Penny,2023,CM,79,296,0.77
+46,Ha'Penny,2023,DC,2,3,0.77
+46,Ha'Penny,2023,EI,7,5,0.77
+47,Manchenil Bay,2023,CM,354,1266,1.7
+47,Manchenil Bay,2023,DC,17,0,1.7
+47,Manchenil Bay,2023,EI,31,27,1.7
+48,Canegarden Bay,2023,CM,4,33,0.66
+48,Canegarden Bay,2023,DC,2,0,0.66
+48,Canegarden Bay,2023,EI,2,2,0.66
+49,Enfield Green,2023,CM,N/A,N/A,0.32
+49,Enfield Green,2023,DC,N/A,N/A,0.32
+49,Enfield Green,2023,EI,N/A,N/A,0.32
+50,Carlton Beach,2023,CM,N/A,N/A,0.41
+50,Carlton Beach,2023,DC,N/A,N/A,0.41
+50,Carlton Beach,2023,EI,N/A,N/A,0.41
+51,Campo Rico,2023,CM,7,2,0.97
+51,Campo Rico,2023,DC,0,0,0.97
+51,Campo Rico,2023,EI,3,0,0.97
+52,Concordia,2023,CM,68,229,0.64
+52,Concordia,2023,DC,0,0,0.64
+52,Concordia,2023,EI,1,2,0.64

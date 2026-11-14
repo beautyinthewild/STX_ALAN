@@ -20,10 +20,16 @@ property_type <-stx_disorient%>%
   select(Year, Property.Type)%>%
   filter(Property.Type!="")
 
+# Organize Locations
+
+location_reports <-stx_disorient%>%
+  select(Year, Location)%>%
+  filter(Location!="")%>%
+  drop_na()
+  
 
 ### Bar chart that tallies property types across years
 # Charts shows that disorientations occur more at DSPR
-
 
 ggplot(property_type, aes(x = as.factor(Year), fill = Property.Type)) +
   geom_bar(position = "dodge") +
@@ -33,6 +39,28 @@ ggplot(property_type, aes(x = as.factor(Year), fill = Property.Type)) +
     x = NULL,
     y = "Number of Disorientation Reports",
     fill = "Development Type"
+  ) +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
+  theme_minimal()
+  
+  
+### Top 5 Locations with the highest disorientation reports
+### Out of the 5 Locations 4 of them are in the West-End
+  
+top_locations <- stx_disorient %>%
+    mutate(Location = trimws(Location)) %>%
+    filter(!is.na(Location), Location != "", Location != "N/A") %>%
+    count(Location, sort = TRUE) %>%
+    slice_max(n, n = 5)
+
+
+ggplot(top_locations, aes(x = reorder(Location, -n), y = n, fill = Location)) +
+  geom_col(show.legend = FALSE) +
+  scale_fill_viridis_d(option = "D") + #color blind safe colors
+  labs(
+    title = NULL,
+    x = NULL,
+    y = "Number of Disorientation Reports"
   ) +
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
   theme_minimal()
