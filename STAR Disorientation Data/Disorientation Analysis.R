@@ -14,13 +14,13 @@ setwd("C:\\Users\\romin\\Desktop\\My Thesis\\SQM CSVs\\STAR Disorientation Data"
 
 stx_disorient <- read.csv("STAR_Disorientation Data.csv")
 
-# Organize Property Type
+# Organize Property Types Across Years
 
 property_type <-stx_disorient%>%
   select(Year, Property.Type)%>%
   filter(Property.Type!="")
 
-# Organize Locations
+# Organize Locations Across Yeats
 
 location_reports <-stx_disorient%>%
   select(Year, Location)%>%
@@ -28,8 +28,8 @@ location_reports <-stx_disorient%>%
   drop_na()
   
 
-### Bar chart that tallies property types across years
-# Charts shows that disorientations occur more at DSPR
+### Bar chart tallies property types across years
+# Charts shows that disorientations occur more at DSPR and Resorts
 
 ggplot(property_type, aes(x = as.factor(Year), fill = Property.Type)) +
   geom_bar(position = "dodge") +
@@ -62,8 +62,47 @@ ggplot(top_locations, aes(x = reorder(Location, -n), y = n, fill = Location)) +
     x = NULL,
     y = "Number of Disorientation Reports"
   ) +
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
-  theme_minimal()
+  theme_minimal() +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)),
+    axis.text = element_text(color = "black"))
+
+
+### Clean the data for the number of disoriented hatchlings 
+
+sum_dm <- stx_disorient %>%
+  select(Year, Species, Sum.DM) %>%
+  filter(
+    if_all(
+      everything(),
+      ~ !is.na(.) & 
+        trimws(.) != "" & 
+        !toupper(trimws(.)) %in% c("UNK", "N/A", "NA"))) %>%
+  mutate(Sum.DM = as.numeric(Sum.DM)) # Converts Sum.DM from text to numbers
+
+
+### Summarize total disorientations for Cm and Ei 
+sum_dm_totals <- sum_dm %>%
+  group_by(Year, Species) %>%
+  summarise(Total_DM = sum(Sum.DM, na.rm = TRUE), .groups = "drop")
+
+### Bar Chart
+ggplot(sum_dm_totals, aes(x = factor(Year), y = Total_DM, fill = Species)) +
+  geom_col(position = position_dodge2(width = 0.8, preserve = "single"), width = 0.7) +
+  scale_fill_manual(
+    values = c(
+      "Cm" = "#009E73", # Colorblind-safe bluish green
+      "Ei" = "#D55E00"  # Colorblind-safe orange
+    ),
+    labels = c("Cm" = "Green (Cm)", "Ei" = "Hawksbill (Ei)")) +
+  labs(
+    x = NULL,
+    y = "Total Disoriented Hatchlings",
+    fill = "Species") +
+  theme_minimal() +
+  theme(
+    axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)),
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0)),
+    axis.text = element_text(color = "black"))
 
 
 # Mortality Across Years for Hawksbill and Green Turtle Hatchlings
