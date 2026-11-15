@@ -26,7 +26,6 @@ location_reports <-stx_disorient%>%
   select(Year, Location)%>%
   filter(Location!="")%>%
   drop_na()
-  
 
 ### Bar chart tallies property types across years
 # Charts shows that disorientations occur more at DSPR and Resorts
@@ -96,7 +95,7 @@ ggplot(sum_dm_totals, aes(x = factor(Year), y = Total_DM, fill = Species)) +
     labels = c("Cm" = "Green (Cm)", "Ei" = "Hawksbill (Ei)")) +
   labs(
     x = NULL,
-    y = "Total Disoriented Hatchlings",
+    y = "Total Affected Hatchlings",
     fill = "Species") +
   theme_minimal() +
   theme(
