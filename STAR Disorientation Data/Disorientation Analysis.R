@@ -4,6 +4,7 @@ library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(ggh4x)
 
 
 # Set working directory
@@ -122,7 +123,7 @@ mortality_clean <- stx_disorient %>%
   mutate(Mortality=as.numeric(Mortality), Disoriented=as.numeric(Disoriented),Species=as.factor(Species),Prop=case_when(Property.Type%in% c("Hotel", "Resort")~"Tourism",TRUE~"Other"))
 
 
-# Line of best fit
+# Line of best fit - I think I should remove this!
 
 ggplot(mortality_clean,aes(x=Disoriented, y=Mortality, color=Species))+
   geom_point()+
@@ -156,7 +157,9 @@ dual_axis_data <- mortality_clean %>%
 # Define our scale multiplier factor
 scale_factor <- 3
 
-# Dual Y axis
+library(ggh4x)
+
+### Dual Y axis
 ggplot(dual_axis_data, aes(x = as.factor(Year), group = Species, color = Species)) +
   geom_point(aes(y = Total_Disoriented, shape = "Disoriented"), size = 4, alpha = 0.8) +
   geom_line(aes(y = Total_Disoriented), linetype = "dashed", alpha = 0.5) +
@@ -178,6 +181,36 @@ ggplot(dual_axis_data, aes(x = as.factor(Year), group = Species, color = Species
 
 
 
+### Dual Y axis
+ggplot(dual_axis_data, aes(x = as.factor(Year), group = Species, color = Species)) +
+  geom_point(aes(y = Total_Disoriented, shape = "Disoriented"), size = 4, alpha = 0.8) +
+  geom_line(aes(y = Total_Disoriented), linetype = "dashed", alpha = 0.5) +
+  geom_point(aes(y = Total_Mortality * scale_factor, shape = "Mortality"), size = 4, alpha = 0.8) +
+  geom_line(aes(y = Total_Mortality * scale_factor), linetype = "solid", alpha = 0.5) +
+  facet_wrap(~ Species, scales = "free_y") +
+  facetted_pos_scales(
+    y = list(
+      Species == "Cm" ~ scale_y_continuous(
+        name = "Total Disoriented Hatchlings",
+        limits = c(0, 400),
+        breaks = seq(0, 400, by = 100),
+        sec.axis = sec_axis(~ . / scale_factor, name = "Total Mortalities")),
+      Species == "Ei" ~ scale_y_continuous(
+        name = "Total Disoriented Hatchlings",
+        limits = c(0, 1000),
+        breaks = seq(0, 1000, by = 250),
+        sec.axis = sec_axis(~ . / scale_factor, name = "Total Mortalities")))) +
+  scale_color_manual(values = c("Cm" = "#009E73", "Ei" = "#E69F00")) +
+  labs(
+    title = NULL,
+    x = NULL,
+    shape = "Metric") +
+  theme_minimal() +
+theme(
+  strip.text = element_text(face = "bold", size = 12),
+  axis.text = element_text(color = "black"),
+  legend.position = "bottom",
+  panel.spacing = unit(2, "lines"))
 
 
 
