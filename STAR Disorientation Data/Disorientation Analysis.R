@@ -1,4 +1,6 @@
 
+### Disorientation Reports from Partners
+
 # Load libraries
 library(tidyverse)
 library(ggplot2)
@@ -13,7 +15,7 @@ setwd("C:\\Users\\romin\\Desktop\\My Thesis\\SQM CSVs\\STAR Disorientation Data"
 
 # Create a data name
 
-stx_disorient <- read.csv("STAR_Disorientation Data.csv")
+stx_disorient <- read.csv("Disorientation Data.csv")
 
 # Organize Property Types Across Years
 
@@ -21,7 +23,7 @@ property_type <-stx_disorient%>%
   select(Year, Property.Type)%>%
   filter(Property.Type!="")
 
-# Organize Locations Across Yeats
+# Organize Locations Across Years
 
 location_reports <-stx_disorient%>%
   select(Year, Location)%>%
@@ -38,11 +40,12 @@ ggplot(property_type, aes(x = as.factor(Year), fill = Property.Type)) +
     title = NULL,
     x = NULL,
     y = "Number of Disorientation Reports",
-    fill = "Development Type"
-  ) +
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
-  theme_minimal()
-  
+    fill = "Development Type") +
+  theme_minimal() +
+  theme(
+    text = element_text(color = "black"),
+    axis.text = element_text(color = "black"),
+    axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
   
 ### Top 5 Locations with the highest disorientation reports
 ### Out of the 5 Locations 4 of them are in the West-End
@@ -60,49 +63,51 @@ ggplot(top_locations, aes(x = reorder(Location, -n), y = n, fill = Location)) +
   labs(
     title = NULL,
     x = NULL,
-    y = "Number of Disorientation Reports"
-  ) +
+    y = "Number of Disorientation Reports") +
   theme_minimal() +
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)),
     axis.text = element_text(color = "black"))
 
 
-### Clean the data for the number of disoriented hatchlings 
+### Total Disoriented Hatchlings Across Years 
 
-sum_dm <- stx_disorient %>%
-  select(Year, Species, Sum.DM) %>%
-  filter(
-    if_all(
-      everything(),
-      ~ !is.na(.) & 
-        trimws(.) != "" & 
-        !toupper(trimws(.)) %in% c("UNK", "N/A", "NA"))) %>%
-  mutate(Sum.DM = as.numeric(Sum.DM)) # Converts Sum.DM from text to numbers
-
-
-### Summarize total disorientations for Cm and Ei 
-sum_dm_totals <- sum_dm %>%
+sum_disoriented <- stx_disorient %>%
+  select(Year, Species, Disoriented, Alive) %>%
+  filter(Species != "", !is.na(Species)) %>%
+  mutate(
+    Disoriented = as.numeric(Disoriented),
+    Alive = as.numeric(Alive)) %>%
   group_by(Year, Species) %>%
-  summarise(Total_DM = sum(Sum.DM, na.rm = TRUE), .groups = "drop")
+  summarise(
+    Total_Disoriented = sum(Disoriented, na.rm = TRUE),
+    Total_Alive = sum(Alive, na.rm = TRUE),
+    .groups = "drop")
 
 ### Bar Chart
-ggplot(sum_dm_totals, aes(x = factor(Year), y = Total_DM, fill = Species)) +
-  geom_col(position = position_dodge2(width = 0.8, preserve = "single"), width = 0.7) +
-  scale_fill_manual(
-    values = c(
-      "Cm" = "#009E73", # Colorblind-safe bluish green
-      "Ei" = "#D55E00"  # Colorblind-safe orange
-    ),
-    labels = c("Cm" = "Green (Cm)", "Ei" = "Hawksbill (Ei)")) +
+
+sum_disoriented %>%
+  pivot_longer(
+    cols = c(Total_Disoriented, Total_Alive),
+    names_to = "Outcome",
+    values_to = "Count")%>%
+  ggplot(aes(x = as.factor(Year), y = Count, fill = Outcome)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Species) +
+  scale_fill_brewer(
+    palette = "Set2",
+    labels = c("Total_Alive" = "Found Alive", "Total_Disoriented" = "Disoriented")) +
   labs(
+    title = NULL,
     x = NULL,
     y = "Total Affected Hatchlings",
-    fill = "Species") +
+    fill = "Hatchling Outcome") +
   theme_minimal() +
   theme(
-    axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)),
-    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0)),
-    axis.text = element_text(color = "black"))
+    text = element_text(color = "black"),
+    axis.text = element_text(color = "black"),
+    strip.text = element_text(color = "black", face = "bold"),
+    axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)))
+
 
 
 # Mortality Across Years for Hawksbill and Green Turtle Hatchlings
@@ -115,8 +120,8 @@ mortality_years <- stx_disorient %>%
 # Cleans up the NA's and UNKs in the rows. 
 
 mortality_clean <- stx_disorient %>%
-  select(Year, Species, Mortality, Disoriented, Property.Type, Incident.Documented) %>%
-  drop_na(Year, Species, Mortality, Disoriented, Property.Type,  Incident.Documented) %>%
+  select(Year, Species, Mortality, Disoriented, Property.Type)%>%
+  drop_na(Year, Species, Mortality, Disoriented, Property.Type)%>%
   filter(
     Year != "", Species != "", Mortality != "", Disoriented != "",
     if_all(c(Year, Species, Mortality, Disoriented), ~ !.x %in% c("UNK", "N/A")))%>%
@@ -157,7 +162,6 @@ dual_axis_data <- mortality_clean %>%
 # Define our scale multiplier factor
 scale_factor <- 3
 
-library(ggh4x)
 
 ### Dual Y axis
 ggplot(dual_axis_data, aes(x = as.factor(Year), group = Species, color = Species)) +

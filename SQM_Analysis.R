@@ -5,6 +5,8 @@ library(tidyverse)
 library(viridis)
 library(plotrix)
 
+setwd("C:\\Users\\romin\\Desktop\\My Thesis\\SQM CSVs")
+
 # Combine files. Create a data name for each CSV.
 
 SQM_west <-read.csv("SQM West End.csv")
@@ -39,7 +41,7 @@ colnames(SQM_east)
 # convert it.
 
 lw_west <-SQM_west%>%
-  select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>% #select columns you want
+  select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>% 
   mutate(REGION="West End")%>% # add a new variable/column
   mutate(SQM..LW.=as.numeric(SQM..LW.))
 
