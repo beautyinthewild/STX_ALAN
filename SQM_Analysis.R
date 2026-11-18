@@ -42,8 +42,7 @@ colnames(SQM_east)
 
 lw_west <-SQM_west%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>% 
-  mutate(REGION="West End")%>% # add a new variable/column
-  mutate(SQM..LW.=as.numeric(SQM..LW.))
+  mutate(REGION="West End")
 
 lw_north <-SQM_north%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
@@ -58,7 +57,6 @@ lw_eemp <-SQM_eemp%>%
   mutate(REGION="East End")%>%
   mutate(SQM..LW.=as.numeric(SQM..LW.))
   
-
 
 # Combine the landward values from each data set, stack them together
 
@@ -85,30 +83,33 @@ stx_lw_analysis <-lw_stx%>%
   ungroup()
 
 
-### Top 10 Darkest Beaches - Local Beach Names
+write.csv(stx_lw_analysis,"SQM LW List of Beaches .csv")
+
+
+### Top 10 Darkest Beaches in St. Croix
 
 lw_darkest <-stx_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
 
-write.csv(lw_darkest,"LW Darkest Beaches_Standard Names.csv")
+write.csv(lw_darkest,"LW Darkest Beaches.csv")
 
-### Top 10 Brightest Beaches - Local Beach Names
+### Top 10 Brightest Beaches in St. Croix
 
 lw_brightest <-stx_lw_analysis%>%
   slice_min(order_by=lw_avg, n=10)
 
-write.csv(lw_brightest,"LW Brightest Beaches_Standard Names.csv")
+write.csv(lw_brightest,"LW Brightest Beaches.csv")
 
 
-# Landward values for the west end.
+
+# Landward values for the West End.
 
 lw_boxplot<-stx_lw_analysis%>%
   select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
   filter(REGION == "West End")
 
 
-# Scatter plot of nesting beaches in the West End
-## From highest to lowest brightness
+### Scatter plot of nesting beaches in the West End. Range in brightness
 
 ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCATION)) + 
   geom_point(color = "black", size = 3.5) +
@@ -123,7 +124,7 @@ ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCAT
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     axis.title.y = element_text(margin = margin(r = 10)))
 
-# Scatter Plot - Beaches in alphabetical order
+# Original Scatter Plot - Beaches in alphabetical order - Not organized.
 
 ggplot(lw_boxplot, aes(x =LOCATION, y = lw_avg, color = LOCATION)) + 
   geom_point(color = "black", size = 3.5) +
@@ -164,6 +165,16 @@ zenith_stx <-rbind(zenith_west, zenith_north, zenith_south, zenith_eemp)
 zenith_stx_clean<-zenith_stx%>%
   drop_na(LOCATION, POINTS, SQM.ZENITH, REGION)
 
+#  I used this code instead of the one above
+zenith_stx_clean <- zenith_stx %>%
+  mutate(
+    SQM.ZENITH = as.numeric(SQM.ZENITH),
+    LOCATION = trimws(LOCATION),
+    STANDARD.NAME = trimws(STANDARD.NAME),
+    REGION = trimws(REGION)) %>%
+  drop_na(LOCATION, POINTS, SQM.ZENITH, REGION)
+
+
 # Calculate zenith averages for each nesting beach. Take the average of all 
 # the points for each site.
 
@@ -184,14 +195,14 @@ stx_zenith_analysis <-zenith_stx_clean%>%
 zenith_darkest <-stx_zenith_analysis%>%
   slice_max(order_by=zenith_avg, n = 10) 
 
-write.csv(zenith_darkest,"Zenith Darkest Beaches_Local Names.csv")
+write.csv(zenith_darkest,"Zenith Darkest Beaches.csv")
 
 ### Top 10 Brightest Zenith Skies - Local Names
 
 zenith_brightest <-stx_zenith_analysis%>%
   slice_min(order_by=zenith_avg, n=10)
 
-write.csv(lw_brightest,"Zenith Brightest Skies_Local Names.csv")
+write.csv(lw_brightest,"Zenith Brightest Skies.csv")
 
 # Zenith Values for St. Croix
 
@@ -269,6 +280,14 @@ seaward_stx_clean<-seaward_stx%>%
   filter(SQM..SW.!="")%>% #removes NA's 
   mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
 
+seaward_stx_clean <- seaward_stx %>%
+  mutate(
+    SQM..SW. = as.numeric(SQM..SW.),
+    LOCATION = as.factor(trimws(LOCATION)),
+    STANDARD.NAME = trimws(STANDARD.NAME),
+    REGION = as.factor(trimws(REGION))) %>%
+  drop_na(LOCATION, POINTS, SQM..SW., REGION)
+
 
 stx_seaward_analysis <-seaward_stx_clean%>%
   group_by(LOCATION, REGION)%>% #this will create one line per beach
@@ -281,20 +300,22 @@ stx_seaward_analysis <-seaward_stx_clean%>%
   STANDARD.NAME=first(STANDARD.NAME))%>%
   ungroup()
 
+write.csv(stx_seaward_analysis,"SQM SW List of Beaches .csv")
 
-### Top 10 Darkest Seaward Skies - Local Names
+
+### Top 10 Darkest Seaward Skies 
 
 seaward_darkest <-stx_seaward_analysis%>%
   slice_max(order_by=seaward_avg, n = 10) 
 
-write.csv(seaward_darkest,"Darkest Seaward Skies_Local Names.csv")
+write.csv(seaward_darkest,"Darkest Seaward Skies.csv")
 
-### Top 10 Brightest Seaward Skies - Local Names
+### Top 10 Brightest Seaward Skies 
 
 seaward_brightest <-stx_seaward_analysis%>%
   slice_min(order_by=seaward_avg, n=10)
 
-write.csv(seaward_brightest,"Brightest Seaward Skies_Local Names.csv")
+write.csv(seaward_brightest,"Brightest Seaward Skies.csv")
 
 # Seaward values for St. Croix
 
@@ -342,7 +363,7 @@ combined_averages <- avg_zenith %>%
   left_join(avg_landward, by = c("LOCATION", "REGION"))
 
 
-write.csv(combined_averages,"Clean Light Data.csv")
+write.csv(combined_averages,"Clean SQM Data.csv")
 
 
 ### Combine averages for landward, seaward and zenith in a plot
@@ -489,8 +510,7 @@ ggplot(plot_data_north, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     axis.text.y = element_text(color = "black", size = 9),
     axis.title.x = element_text(margin = margin(t = 15)),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"),
-    legend.position = "right"
-  )
+    legend.position = "right")
 
 ###Brightness Scale for North Shore Beaches
 
