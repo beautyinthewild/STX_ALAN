@@ -19,7 +19,7 @@ SQM_eemp <-read.csv("SQM EEMP.csv")
 dir.create("Data") # create this folder to keep track of your scripts
 dir.create("Plots") # create this folder to drop your plot images
 
-# Always visualize your data! Number one coding rule! Examples shown below.
+# Visualize your data before coding. Review variables. Examples shown below.
 
 view(SQM_west)
 glimpse(SQM_west)
@@ -35,10 +35,7 @@ colnames(SQM_north)
 colnames(SQM_south)
 colnames(SQM_east)
 
-# CREATE SECONDARY DATASETS. Make a new data name for all CSV files.
-# Example: Type str(lw_west) in the console to make sure your data that you
-# want to analyze is all numeric and not in character or else you have to 
-# convert it.
+# Make a new data name for all CSV files. Tip: Type str(lw_west) in the console to make sure your data that you want to analyze is all numeric and not in character or else you have to convert it.
 
 lw_west <-SQM_west%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>% 
@@ -54,10 +51,8 @@ lw_south <-SQM_south%>%
 
 lw_eemp <-SQM_eemp%>%
   select(STANDARD.NAME, LOCATION, POINTS, SQM..LW.)%>%
-  mutate(REGION="East End")%>%
-  mutate(SQM..LW.=as.numeric(SQM..LW.))
+  mutate(REGION="East End")
   
-
 # Combine the landward values from each data set, stack them together
 
 lw_stx <-rbind(lw_west, lw_north, lw_south, lw_eemp) 
@@ -68,7 +63,7 @@ lw_stx <-lw_stx%>%
 # Calculate landward averages for each nesting beach. Take the average of all 
 # the points for each survey site.
 
-# LW Analysis St. Croix
+# Landward Values 
 
 stx_lw_analysis <-lw_stx%>%
   group_by(LOCATION, REGION)%>%
@@ -86,20 +81,19 @@ stx_lw_analysis <-lw_stx%>%
 write.csv(stx_lw_analysis,"SQM LW List of Beaches .csv")
 
 
-### Top 10 Darkest Beaches in St. Croix
+### Top 10 Darkest Beaches 
 
 lw_darkest <-stx_lw_analysis%>%
   slice_max(order_by=lw_avg, n = 10) 
 
 write.csv(lw_darkest,"LW Darkest Beaches.csv")
 
-### Top 10 Brightest Beaches in St. Croix
+### Top 10 Brightest Beaches 
 
 lw_brightest <-stx_lw_analysis%>%
   slice_min(order_by=lw_avg, n=10)
 
 write.csv(lw_brightest,"LW Brightest Beaches.csv")
-
 
 
 # Landward values for the West End.
@@ -190,21 +184,21 @@ stx_zenith_analysis <-zenith_stx_clean%>%
   ungroup()
 
 
-### Top 10 Darkest Zenith Skies - Local Names
+### Top 10 Darkest Zenith Skies 
 
 zenith_darkest <-stx_zenith_analysis%>%
   slice_max(order_by=zenith_avg, n = 10) 
 
 write.csv(zenith_darkest,"Zenith Darkest Beaches.csv")
 
-### Top 10 Brightest Zenith Skies - Local Names
+### Top 10 Brightest Zenith Skies 
 
 zenith_brightest <-stx_zenith_analysis%>%
   slice_min(order_by=zenith_avg, n=10)
 
 write.csv(lw_brightest,"Zenith Brightest Skies.csv")
 
-# Zenith Values for St. Croix
+# Zenith Values Across Beaches
 
 zenith_boxplot<-stx_zenith_analysis%>%
   select(LOCATION, REGION, zenith_avg, zenith_median, zenith_min, zenith_max, zenith_range)
@@ -280,6 +274,8 @@ seaward_stx_clean<-seaward_stx%>%
   filter(SQM..SW.!="")%>% #removes NA's 
   mutate(LOCATION=as.factor(LOCATION),REGION=as.factor(REGION))
 
+#Dont need this code below
+
 seaward_stx_clean <- seaward_stx %>%
   mutate(
     SQM..SW. = as.numeric(SQM..SW.),
@@ -290,7 +286,7 @@ seaward_stx_clean <- seaward_stx %>%
 
 
 stx_seaward_analysis <-seaward_stx_clean%>%
-  group_by(LOCATION, REGION)%>% #this will create one line per beach
+  group_by(LOCATION, REGION)%>% 
   summarise(points=max(POINTS),
             seaward_avg=mean(SQM..SW.,na.rm=T),
             seaward_median=median(SQM..SW.,na.rm=T),
@@ -356,7 +352,7 @@ avg_seaward <-stx_seaward_analysis%>%
 avg_zenith <-stx_zenith_analysis%>%
   select(LOCATION,REGION, zenith_avg)
 
-# Merge the average data sets together 
+# Merge the average data sets together (error!!!)
 
 combined_averages <- avg_zenith %>%
   left_join(avg_seaward, by = c("LOCATION", "REGION")) %>%
