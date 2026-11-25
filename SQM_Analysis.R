@@ -99,13 +99,38 @@ write.csv(lw_brightest,"LW Brightest Beaches.csv")
 # Landward values for the West End.
 
 lw_boxplot<-stx_lw_analysis%>%
+  select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)
+
+lw_boxplot_2<-stx_lw_analysis%>%
   select(LOCATION, REGION, lw_avg, lw_median, lw_min, lw_max, lw_range)%>%
   filter(REGION == "West End")
 
 
-### Scatter plot of nesting beaches in the West End. Range in brightness
+ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg)) + 
+  geom_segment(
+    aes(xend = reorder(LOCATION, -lw_avg), yend = 0), 
+    color = "grey75",   
+    linewidth = 0.6     # thin line weight
+  ) +
+  geom_point(color = "black", size = 3.5) + # data points
+  theme_bw() +
+  ylim(0, 25) + 
+  labs(
+    x = "Sea Turtle Beaches",
+    y = "Landward Brightness (mag/arcsecs)"
+  ) +
+  theme( 
+    axis.text = element_text(color = "black"),
+    axis.title = element_text(color = "black"),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = "black"),
+    axis.title.y = element_text(margin = margin(r = 10), color = "black"),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank())
 
-ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCATION)) + 
+
+### Scatter Plot of West End Brightness
+
+ggplot(lw_boxplot_2, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCATION)) + 
   geom_point(color = "black", size = 3.5) +
   theme_bw() +
   ylim(0, 25) + 
@@ -117,6 +142,7 @@ ggplot(lw_boxplot, aes(x = reorder(LOCATION, -lw_avg), y = lw_avg, color = LOCAT
   theme( 
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     axis.title.y = element_text(margin = margin(r = 10)))
+
 
 # Original Scatter Plot - Beaches in alphabetical order - Not organized.
 
@@ -380,7 +406,7 @@ ggplot(combined_long, aes(x = reorder(LOCATION, -Brightness_Value), y = Brightne
   ylim(10, 25) + 
   labs(
     x = "Sea Turtle Habitats",
-    y = "Nighttime Sky Brightness (mag/arcsec²)",
+    y = "Sky Brightness (mag/arcsec²)",
     color = "Measurement Direction"
   ) +
   scale_color_manual(
@@ -549,7 +575,6 @@ plot_data_south <- sqm_averages_south %>%
 
 
 ###Brightness Scale for South Shore Beaches
-
 
 ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, color = Brightness, shape = Measurement_Type)) + 
   geom_point(size = 5, alpha = 0.8) +
