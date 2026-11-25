@@ -493,7 +493,6 @@ ggplot(plot_data_west, aes(x = LOCATION, y = Brightness, color = Brightness, sha
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color="black"))
 
 
-
 ### Combination for North Shore
 
 sqm_averages_north <-combined_averages%>%
@@ -597,7 +596,6 @@ ggplot(plot_data_south, aes(x = reorder(LOCATION, -Brightness), y = Brightness, 
     axis.title.x = element_text(margin = margin(t = 15)),
     legend.title = element_text(hjust = 0.5),
     legend.position = "right")
-
 
 
 ###Brightness Scale for East End Marine Park
