@@ -367,9 +367,10 @@ write.csv(combined_averages,"Clean SQM Data.csv")
 
 combined_long <- combined_averages %>%
   pivot_longer(
-    cols = c(lw_avg, seaward_avg, zenith_avg), 
-    names_to = "Measurement_Type", 
-    values_to = "Brightness_Value")
+    cols = c(lw_avg, seaward_avg, zenith_avg),
+    names_to = "Measurement_Type",
+    values_to = "Brightness_Value")%>%
+  drop_na(Brightness_Value)
 
 ### Vertical Plot
 
